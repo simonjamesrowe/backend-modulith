@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.simonjamesrowe.apigateway.test.usecase.ResumeGeneratorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-04T08:13:52" hostname="Simons-MacBook-Pro.local" time="0.214">
-  <properties/>
-  <testcase name="shouldGenerateExpectedPdfByteArray()" classname="com.simonjamesrowe.apigateway.test.usecase.ResumeGeneratorTest" time="0.214"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
