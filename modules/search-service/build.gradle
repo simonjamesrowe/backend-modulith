@@ -35,6 +35,11 @@ bootBuildImage {
             password = System.getenv("GITHUB_TOKEN")
         }
     }
+    if (project.hasProperty('buildArch')) {
+        builder = "paketobuildpacks/builder-jammy-tiny:latest"
+        buildpacks = ["gcr.io/paketo-buildpacks/java"]
+    }
+    createdDate = 'now'
 }
 
 test {
