@@ -66,6 +66,14 @@ publishing {
             from components.java
             groupId = 'com.simonjamesrowe'
             artifactId = 'component-test'
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
         }
     }
     repositories {
@@ -78,5 +86,9 @@ publishing {
             }
         }
     }
+}
+
+tasks.withType(GenerateModuleMetadata) {
+    suppressedValidationErrors.add('enforced-platform')
 }
 
