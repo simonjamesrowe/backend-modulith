@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - KafkaEventConsumerITest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>KafkaEventConsumerITest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.simonjamesrowe.searchservice.test.entrypoints.kafka.html">com.simonjamesrowe.searchservice.test.entrypoints.kafka</a> &gt; KafkaEventConsumerITest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.211s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">blogEventsFromKafkaShouldBeIndexed()</td>
+<td class="success">0.211s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-10-04T09:14:03.853+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .t.e.ElasticsearchTestContainerExtension : Elastic Search test container started on port 33266
+2025-10-04T09:14:03.853+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.simonjamesrowe.searchservice.test.entrypoints.kafka.KafkaEventConsumerITest]: KafkaEventConsumerITest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-04T09:14:03.858+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.simonjamesrowe.searchservice.SearchServiceApplication for test class com.simonjamesrowe.searchservice.test.entrypoints.kafka.KafkaEventConsumerITest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2025-10-04T09:14:03.871+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.kafka.KafkaEventConsumerITest  : Starting KafkaEventConsumerITest using Java 21.0.2 with PID 46796 (started by simonrowe in /Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service)
+2025-10-04T09:14:03.871+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.kafka.KafkaEventConsumerITest  : The following 1 profile is active: &quot;cms&quot;
+2025-10-04T09:14:03.935+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-04T09:14:03.935+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-10-04T09:14:03.938+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 2 Elasticsearch repository interfaces.
+2025-10-04T09:14:03.939+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-04T09:14:03.939+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-10-04T09:14:03.940+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .RepositoryConfigurationExtensionSupport : Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.simonjamesrowe.searchservice.dataproviders.elasticsearch.blog.BlogDocumentRepository; If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository
+2025-10-04T09:14:03.940+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .RepositoryConfigurationExtensionSupport : Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.simonjamesrowe.searchservice.dataproviders.elasticsearch.site.SiteDocumentRepository; If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository
+2025-10-04T09:14:03.940+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+2025-10-04T09:14:03.958+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-10-04T09:14:03.959+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-04T09:14:03.959+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-04T09:14:03.967+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-04T09:14:03.967+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 96 ms
+2025-10-04T09:14:04.106+01:00  INFO 46796 --- [search-service] [localhost:27017] [                                                 ] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.lambda$open$0(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:76) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:105) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 4 common frames omitted
+
+2025-10-04T09:14:04.106+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] org.mongodb.driver.client                : MongoClient with metadata {&quot;driver&quot;: {&quot;name&quot;: &quot;mongo-java-driver|sync|spring-boot&quot;, &quot;version&quot;: &quot;5.0.1&quot;}, &quot;os&quot;: {&quot;type&quot;: &quot;Darwin&quot;, &quot;name&quot;: &quot;Mac OS X&quot;, &quot;architecture&quot;: &quot;aarch64&quot;, &quot;version&quot;: &quot;15.1&quot;}, &quot;platform&quot;: &quot;Java/GraalVM Community/21.0.2+13-jvmci-23.1-b30&quot;} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@2febb687], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2084b5cd, com.mongodb.Jep395RecordCodecProvider@78b62985, com.mongodb.KotlinCodecProvider@63bbd5b1]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@48c1b99e], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-10-04T09:14:04.132+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-04T09:14:04.139+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:33272]
+	client.dns.lookup = use_all_dns_ips
+	client.id = search-service-admin-1
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-10-04T09:14:04.140+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:14:04.140+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:14:04.140+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565644140
+2025-10-04T09:14:04.160+01:00  INFO 46796 --- [search-service] [service-admin-1] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : App info kafka.admin.client for search-service-admin-1 unregistered
+2025-10-04T09:14:04.160+01:00  INFO 46796 --- [search-service] [service-admin-1] [                                                 ] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-10-04T09:14:04.160+01:00  INFO 46796 --- [search-service] [service-admin-1] [                                                 ] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-10-04T09:14:04.160+01:00  INFO 46796 --- [search-service] [service-admin-1] [                                                 ] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-10-04T09:14:04.161+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63582 (http) with context path '/'
+2025-10-04T09:14:04.162+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:33272]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-search-service-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = search-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 20
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class com.simonjamesrowe.model.serialization.WebhookEventDeserializer
+
+2025-10-04T09:14:04.163+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:14:04.165+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:14:04.165+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:14:04.165+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565644165
+2025-10-04T09:14:04.167+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Subscribed to topic(s): LOCAL_EVENTS
+2025-10-04T09:14:04.170+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.kafka.KafkaEventConsumerITest  : Started KafkaEventConsumerITest in 0.31 seconds (process running for 40.236)
+2025-10-04T09:14:04.175+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-search-service-2, groupId=search-service] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2025-10-04T09:14:04.177+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Discovered group coordinator localhost:33272 (id: 2147483646 rack: null)
+2025-10-04T09:14:04.178+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] (Re-)joining group
+2025-10-04T09:14:04.192+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Request joining group due to: need to re-join with the given member-id: consumer-search-service-2-9652129b-d134-4f60-9d3f-2e2607bc62c7
+2025-10-04T09:14:04.192+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] (Re-)joining group
+2025-10-04T09:14:04.197+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Successfully joined group with generation Generation{generationId=3, memberId='consumer-search-service-2-9652129b-d134-4f60-9d3f-2e2607bc62c7', protocol='range'}
+2025-10-04T09:14:04.197+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Finished assignment for group at generation 3: {consumer-search-service-2-9652129b-d134-4f60-9d3f-2e2607bc62c7=Assignment(partitions=[LOCAL_EVENTS-0])}
+2025-10-04T09:14:04.202+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Successfully synced group in generation Generation{generationId=3, memberId='consumer-search-service-2-9652129b-d134-4f60-9d3f-2e2607bc62c7', protocol='range'}
+2025-10-04T09:14:04.202+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Notifying assignor about the new Assignment(partitions=[LOCAL_EVENTS-0])
+2025-10-04T09:14:04.202+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-search-service-2, groupId=search-service] Adding newly assigned partitions: LOCAL_EVENTS-0
+2025-10-04T09:14:04.204+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-2, groupId=search-service] Found no committed offset for partition LOCAL_EVENTS-0
+2025-10-04T09:14:04.213+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-search-service-2, groupId=search-service] Resetting offset for partition LOCAL_EVENTS-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:33272 (id: 1 rack: null)], epoch=0}}.
+2025-10-04T09:14:04.213+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] o.s.k.l.KafkaMessageListenerContainer    : search-service: partitions assigned: [LOCAL_EVENTS-0]
+2025-10-04T09:14:04.674+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:33272]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = search-service-producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class com.simonjamesrowe.model.serialization.WebhookEventSerializer
+
+2025-10-04T09:14:04.675+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:14:04.681+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=search-service-producer-1] Instantiated an idempotent producer.
+2025-10-04T09:14:04.687+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:14:04.690+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:14:04.690+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565644687
+2025-10-04T09:14:04.694+01:00  INFO 46796 --- [search-service] [vice-producer-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Producer clientId=search-service-producer-1] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2025-10-04T09:14:04.724+01:00  INFO 46796 --- [search-service] [vice-producer-1] [                                                 ] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=search-service-producer-1] ProducerId set to 0 with epoch 0
+2025-10-04T09:14:04.743+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] c.s.s.e.kafka.KafkaEventConsumer         : Received events from kafka: [WebhookEventDTO[event=created, createdAt=2025-10-04T09:14:04.666445+01:00[Europe/London], model=blog, entry={&quot;id&quot;:&quot;1&quot;,&quot;published&quot;:true,&quot;tags&quot;:[{&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Kubernetes&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655666+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655675+01:00&quot;,&quot;__v&quot;:1},{&quot;id&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Jenkins&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655678+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655679+01:00&quot;,&quot;__v&quot;:1}],&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655682+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655682+01:00&quot;,&quot;skills&quot;:[{&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Jenkins&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655684+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655685+01:00&quot;,&quot;description&quot;:&quot;Jenkins Description&quot;,&quot;rating&quot;:7.8,&quot;order&quot;:2,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/jenkins.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:10,&quot;width&quot;:100,&quot;height&quot;:100,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/jenkins-thumb.jpg&quot;,&quot;name&quot;:&quot;jenkins-thumb&quot;,&quot;size&quot;:20,&quot;width&quot;:20,&quot;height&quot;:20,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/jenkins-sml.jpg&quot;,&quot;name&quot;:&quot;jenkins-sml&quot;,&quot;size&quot;:30,&quot;width&quot;:30,&quot;height&quot;:30,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/jenkins-med.jpg&quot;,&quot;name&quot;:&quot;jenkins-mde&quot;,&quot;size&quot;:40,&quot;width&quot;:40,&quot;height&quot;:40,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/jenkins-lg.jpg&quot;,&quot;name&quot;:&quot;jenkins-lg&quot;,&quot;size&quot;:50,&quot;width&quot;:50,&quot;height&quot;:50,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}},&quot;includeOnResume&quot;:true}],&quot;shortDescription&quot;:&quot;Short description&quot;,&quot;title&quot;:&quot;My first blog&quot;,&quot;content&quot;:&quot;Some awesome content&quot;,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/image1.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:10,&quot;width&quot;:100,&quot;height&quot;:100,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/image1-thumb.jpg&quot;,&quot;name&quot;:&quot;image1-thumb&quot;,&quot;size&quot;:20,&quot;width&quot;:20,&quot;height&quot;:20,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/image1-sml.jpg&quot;,&quot;name&quot;:&quot;image1-sml&quot;,&quot;size&quot;:30,&quot;width&quot;:30,&quot;height&quot;:30,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/image1-med.jpg&quot;,&quot;name&quot;:&quot;image1-mde&quot;,&quot;size&quot;:40,&quot;width&quot;:40,&quot;height&quot;:40,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/image1-lg.jpg&quot;,&quot;name&quot;:&quot;image1-lg&quot;,&quot;size&quot;:50,&quot;width&quot;:50,&quot;height&quot;:50,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}}}]]
+2025-10-04T09:14:04.776+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] c.s.s.e.kafka.KafkaEventConsumer         : Received events from kafka: [WebhookEventDTO[event=created, createdAt=2025-10-04T09:14:04.666483+01:00[Europe/London], model=car, entry=[&quot;vals&quot;]]]
+2025-10-04T09:14:04.777+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] c.s.s.e.kafka.KafkaEventConsumer         : Received events from kafka: [WebhookEventDTO[event=updated, createdAt=2025-10-04T09:14:04.666487+01:00[Europe/London], model=blog, entry={&quot;id&quot;:&quot;2&quot;,&quot;published&quot;:true,&quot;tags&quot;:[{&quot;id&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Spring&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655854+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655857+01:00&quot;,&quot;__v&quot;:1},{&quot;id&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Kotlin&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655859+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.65586+01:00&quot;,&quot;__v&quot;:1}],&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655861+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655861+01:00&quot;,&quot;skills&quot;:[{&quot;id&quot;:&quot;5&quot;,&quot;name&quot;:&quot;TestContainers&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655863+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655863+01:00&quot;,&quot;description&quot;:&quot;TestContainers Description&quot;,&quot;rating&quot;:4.0,&quot;order&quot;:1,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/test-containers.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:5,&quot;width&quot;:50,&quot;height&quot;:50,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/test-containers-thumb.jpg&quot;,&quot;name&quot;:&quot;test-containers-thumb&quot;,&quot;size&quot;:10,&quot;width&quot;:10,&quot;height&quot;:10,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/test-containers-sml.jpg&quot;,&quot;name&quot;:&quot;test-containers-sml&quot;,&quot;size&quot;:15,&quot;width&quot;:15,&quot;height&quot;:15,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/test-containers-med.jpg&quot;,&quot;name&quot;:&quot;test-containers-mde&quot;,&quot;size&quot;:20,&quot;width&quot;:20,&quot;height&quot;:20,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/test-containers-lg.jpg&quot;,&quot;name&quot;:&quot;test-containers-lg&quot;,&quot;size&quot;:25,&quot;width&quot;:25,&quot;height&quot;:25,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}},&quot;includeOnResume&quot;:true}],&quot;shortDescription&quot;:&quot;Short description 2&quot;,&quot;title&quot;:&quot;My second blog&quot;,&quot;content&quot;:&quot;Some awesome content again&quot;,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/image2.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:6,&quot;width&quot;:60,&quot;height&quot;:60,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/image2-thumb.jpg&quot;,&quot;name&quot;:&quot;image2-thumb&quot;,&quot;size&quot;:12,&quot;width&quot;:12,&quot;height&quot;:12,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/image2-sml.jpg&quot;,&quot;name&quot;:&quot;image2-sml&quot;,&quot;size&quot;:18,&quot;width&quot;:18,&quot;height&quot;:18,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/image2-med.jpg&quot;,&quot;name&quot;:&quot;image2-mde&quot;,&quot;size&quot;:24,&quot;width&quot;:24,&quot;height&quot;:24,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/image2-lg.jpg&quot;,&quot;name&quot;:&quot;image2-lg&quot;,&quot;size&quot;:30,&quot;width&quot;:30,&quot;height&quot;:30,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}}}]]
+2025-10-04T09:14:04.798+01:00  INFO 46796 --- [search-service] [        kafka-1] [                                                 ] c.s.s.e.kafka.KafkaEventConsumer         : Received events from kafka: [WebhookEventDTO[event=updated, createdAt=2025-10-04T09:14:04.666488+01:00[Europe/London], model=blog, entry={&quot;id&quot;:&quot;3&quot;,&quot;published&quot;:false,&quot;tags&quot;:[{&quot;id&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Spring&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655871+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655872+01:00&quot;,&quot;__v&quot;:1},{&quot;id&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Kotlin&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655873+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655873+01:00&quot;,&quot;__v&quot;:1}],&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655874+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655875+01:00&quot;,&quot;skills&quot;:[{&quot;id&quot;:&quot;5&quot;,&quot;name&quot;:&quot;TestContainers&quot;,&quot;createdAt&quot;:&quot;2025-10-04T09:14:04.655875+01:00&quot;,&quot;updatedAt&quot;:&quot;2025-10-04T09:14:04.655876+01:00&quot;,&quot;description&quot;:&quot;TestContainers Description&quot;,&quot;rating&quot;:4.0,&quot;order&quot;:1,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/testcontainers.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:8,&quot;width&quot;:80,&quot;height&quot;:80,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/testcontainers-thumb.jpg&quot;,&quot;name&quot;:&quot;testcontainers-thumb&quot;,&quot;size&quot;:16,&quot;width&quot;:16,&quot;height&quot;:16,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/testcontainers-sml.jpg&quot;,&quot;name&quot;:&quot;testcontainers-sml&quot;,&quot;size&quot;:24,&quot;width&quot;:24,&quot;height&quot;:24,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/testcontainers-med.jpg&quot;,&quot;name&quot;:&quot;testcontainers-mde&quot;,&quot;size&quot;:32,&quot;width&quot;:32,&quot;height&quot;:32,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/testcontainers-lg.jpg&quot;,&quot;name&quot;:&quot;testcontainers-lg&quot;,&quot;size&quot;:40,&quot;width&quot;:40,&quot;height&quot;:40,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}},&quot;includeOnResume&quot;:false}],&quot;shortDescription&quot;:&quot;Short description 3&quot;,&quot;title&quot;:&quot;My 3rd blog&quot;,&quot;content&quot;:&quot;Some awesome content again&quot;,&quot;image&quot;:{&quot;url&quot;:&quot;uploads/image2.jpg&quot;,&quot;name&quot;:&quot;image1&quot;,&quot;size&quot;:9,&quot;width&quot;:90,&quot;height&quot;:90,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:{&quot;thumbnail&quot;:{&quot;url&quot;:&quot;uploads/image2-thumb.jpg&quot;,&quot;name&quot;:&quot;image2-thumb&quot;,&quot;size&quot;:18,&quot;width&quot;:18,&quot;height&quot;:18,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;large&quot;:{&quot;url&quot;:&quot;uploads/image2-sml.jpg&quot;,&quot;name&quot;:&quot;image2-sml&quot;,&quot;size&quot;:27,&quot;width&quot;:27,&quot;height&quot;:27,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;medium&quot;:{&quot;url&quot;:&quot;uploads/image2-med.jpg&quot;,&quot;name&quot;:&quot;image2-mde&quot;,&quot;size&quot;:36,&quot;width&quot;:36,&quot;height&quot;:36,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null},&quot;small&quot;:{&quot;url&quot;:&quot;uploads/image2-lg.jpg&quot;,&quot;name&quot;:&quot;image2-lg&quot;,&quot;size&quot;:45,&quot;width&quot;:45,&quot;height&quot;:45,&quot;mime&quot;:&quot;jpg&quot;,&quot;formats&quot;:null}}}}]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at 4 Oct 2025, 09:14:06</p>
+</div>
+</div>
+</body>
+</html>

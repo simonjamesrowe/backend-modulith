@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.12.4">
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/repository/SiteIndexRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/repository/BlogIndexRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/repository/BlogSearchRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/repository/SiteSearchRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/model/IndexSiteRequest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/model/SiteSearchResult.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/model/IndexBlogRequest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/model/BlogSearchResult.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/usecase/IndexSiteUseCase.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/usecase/IndexBlogUseCase.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/usecase/SearchBlogsUseCase.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/core/usecase/SearchSiteUseCase.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/cms/CmsRestApi.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/cms/ICmsRestApi.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/cms/CmsProperties.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/AbstractIndexConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/blog/BlogRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/blog/BlogDocument.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/blog/BlogDocumentRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/blog/BlogDocumentIndexConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/site/SiteDocument.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/site/SiteDocumentRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/site/SiteDocumentIndexConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/site/SiteSearchRepository.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/dataproviders/elasticsearch/site/SiteResultMapper.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/config/ElasticSearchIndexProperties.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/config/KafkaConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/config/ElasticSearchConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/config/RestClientConfiguration.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/mapper/SkillsGroupMapper.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/mapper/JobMapper.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/mapper/BlogMapper.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/SearchServiceApplication.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/kafka/IKafkaEventConsumer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/kafka/KafkaEventConsumer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/restcontroller/BlogController.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/restcontroller/SiteController.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/scheduled/CmsSynchronization.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/main/java/com/simonjamesrowe/searchservice/entrypoints/scheduled/ICmsSynchronization.java">
+</file>
+</checkstyle>

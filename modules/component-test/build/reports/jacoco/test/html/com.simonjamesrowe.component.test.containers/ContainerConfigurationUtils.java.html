@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContainerConfigurationUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">component-test</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.component.test.containers</a> &gt; <span class="el_source">ContainerConfigurationUtils.java</span></div><h1>ContainerConfigurationUtils.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.component.test.containers;
+
+import org.testcontainers.containers.GenericContainer;
+import lombok.extern.slf4j.Slf4j;
+import java.util.Arrays;
+
+<span class="fc" id="L7">@Slf4j</span>
+public final class ContainerConfigurationUtils {
+
+    private ContainerConfigurationUtils() {
+        // Utility class
+    }
+
+    private static final String TEST_CONTAINERS_DOCKER_GROUP_ADD = &quot;TEST_CONTAINERS_DOCKER_GROUP_ADD&quot;;
+
+    /**
+     * Applies the TEST_CONTAINERS_DOCKER_GROUP_ADD environment variable as a --group-add parameter
+     * to the container if the environment variable is set.
+     *
+     * @param container the container to configure
+     * @param &lt;T&gt; the container type
+     * @return the configured container
+     */
+    public static &lt;T extends GenericContainer&lt;?&gt;&gt; T applyGroupAddConfiguration(final T container) {
+<span class="fc" id="L25">        final String groupAdd = System.getenv(TEST_CONTAINERS_DOCKER_GROUP_ADD);</span>
+<span class="pc bpc" id="L26" title="3 of 4 branches missed.">        if (groupAdd != null &amp;&amp; !groupAdd.trim().isEmpty()) {</span>
+<span class="nc" id="L27">            log.info(&quot;Applying --group-add {} to container&quot;, groupAdd);</span>
+<span class="nc" id="L28">            container.withCreateContainerCmdModifier(cmd -&gt; {</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">                if (cmd.getHostConfig() == null) {</span>
+<span class="nc" id="L30">                    cmd.withHostConfig(new com.github.dockerjava.api.model.HostConfig());</span>
+                }
+<span class="nc" id="L32">                cmd.getHostConfig().withGroupAdd(Arrays.asList(groupAdd));</span>
+<span class="nc" id="L33">            });</span>
+        }
+<span class="fc" id="L35">        return container;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

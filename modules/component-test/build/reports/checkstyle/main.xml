@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.12.4">
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/jwt/JwtUtils.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/postgresql/PostgresqlTestContainersExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/postgresql/WithPostgresContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/MongoTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/BaseComponentTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/redis/WithRedisContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/redis/RedisTestContainersExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/utils/PortUtils.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/kafka/WithKafkaContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/kafka/KafkaContainerExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/kafka/SchemaRegistryContainerExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/mongo/TestDataRunner.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/mongo/WithMongoDBContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/mongo/MongoDBTestContainersExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/containers/ContainerConfigurationUtils.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/JpaTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/elasticsearch/WithElasticsearchContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/elasticsearch/ElasticsearchTestContainerExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/vault/WithVaultContainer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/vault/VaultTestContainersExtension.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/component-test/src/main/java/com/simonjamesrowe/component/test/ComponentTest.java">
+</file>
+</checkstyle>

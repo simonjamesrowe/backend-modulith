@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CmsRestApi.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api-gateway</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.apigateway.dataproviders.cms</a> &gt; <span class="el_source">CmsRestApi.java</span></div><h1>CmsRestApi.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.apigateway.dataproviders.cms;
+
+import com.simonjamesrowe.model.cms.dto.JobResponseDTO;
+import com.simonjamesrowe.model.cms.dto.ProfileResponseDTO;
+import com.simonjamesrowe.model.cms.dto.SkillResponseDTO;
+import com.simonjamesrowe.model.cms.dto.SocialMediaResponseDTO;
+import io.micrometer.tracing.annotation.NewSpan;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClient;
+
+import java.util.List;
+
+@Component
+public class CmsRestApi implements ICmsRestApi {
+
+    private final RestClient restClient;
+    private final String cmsUrl;
+
+<span class="fc" id="L22">    public CmsRestApi(RestClient restClient, @Value(&quot;${cms.url}&quot;) String cmsUrl) {</span>
+<span class="fc" id="L23">        this.restClient = restClient;</span>
+<span class="fc" id="L24">        this.cmsUrl = cmsUrl;</span>
+<span class="fc" id="L25">    }</span>
+
+    @NewSpan(&quot;http-getAllJobs-cms&quot;)
+    @Override
+    public List&lt;JobResponseDTO&gt; getAllJobs() {
+<span class="fc" id="L30">        return restClient.get()</span>
+<span class="fc" id="L31">                .uri(cmsUrl + &quot;/jobs&quot;)</span>
+<span class="fc" id="L32">                .accept(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L33">                .retrieve()</span>
+<span class="fc" id="L34">                .body(new ParameterizedTypeReference&lt;List&lt;JobResponseDTO&gt;&gt;() { });</span>
+    }
+
+    @NewSpan(&quot;http-getAllSkillsGroups-cms&quot;)
+    @Override
+    public List&lt;SkillResponseDTO&gt; getAllSkills() {
+<span class="fc" id="L40">        return restClient.get()</span>
+<span class="fc" id="L41">                .uri(cmsUrl + &quot;/skills&quot;)</span>
+<span class="fc" id="L42">                .accept(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L43">                .retrieve()</span>
+<span class="fc" id="L44">                .body(new ParameterizedTypeReference&lt;List&lt;SkillResponseDTO&gt;&gt;() { });</span>
+    }
+
+    @NewSpan(&quot;http-getProfiles-cms&quot;)
+    @Override
+    public List&lt;ProfileResponseDTO&gt; getProfiles() {
+<span class="fc" id="L50">        return restClient.get()</span>
+<span class="fc" id="L51">                .uri(cmsUrl + &quot;/profiles&quot;)</span>
+<span class="fc" id="L52">                .accept(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L53">                .retrieve()</span>
+<span class="fc" id="L54">                .body(new ParameterizedTypeReference&lt;List&lt;ProfileResponseDTO&gt;&gt;() { });</span>
+    }
+
+    @NewSpan(&quot;http-getSocialMedias-cms&quot;)
+    @Override
+    public List&lt;SocialMediaResponseDTO&gt; getAllSocialMedias() {
+<span class="fc" id="L60">        return restClient.get()</span>
+<span class="fc" id="L61">                .uri(cmsUrl + &quot;/social-medias&quot;)</span>
+<span class="fc" id="L62">                .accept(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L63">                .retrieve()</span>
+<span class="fc" id="L64">                .body(new ParameterizedTypeReference&lt;List&lt;SocialMediaResponseDTO&gt;&gt;() { });</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

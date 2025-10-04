@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/api-gateway/backend-modulith.modules.api-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/api-gateway/backend-modulith.modules.api-gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/api-gateway/backend-modulith.modules.api-gateway.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/api-gateway/backend-modulith.modules.api-gateway.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/component-test/backend-modulith.modules.component-test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/component-test/backend-modulith.modules.component-test.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/component-test/backend-modulith.modules.component-test.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/component-test/backend-modulith.modules.component-test.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/model/backend-modulith.modules.model.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/model/backend-modulith.modules.model.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/search-service/backend-modulith.modules.search-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/search-service/backend-modulith.modules.search-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/search-service/backend-modulith.modules.search-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/search-service/backend-modulith.modules.search-service.test.iml" />
+    </modules>
+  </component>
+</project>

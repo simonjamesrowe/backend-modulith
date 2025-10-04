@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.simonjamesrowe.searchservice.test.mapper.SkillsGroupMapperTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-04T08:14:06" hostname="Simons-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="shouldConvertToIndexSiteRequests()" classname="com.simonjamesrowe.searchservice.test.mapper.SkillsGroupMapperTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

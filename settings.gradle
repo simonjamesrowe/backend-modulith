@@ -1,0 +1,6 @@
+rootProject.name = 'backend-modulith'
+
+include 'modules:model'
+include 'modules:component-test'
+include 'modules:api-gateway'
+include 'modules:search-service'

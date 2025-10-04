@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractIndexConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">search-service</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.searchservice.dataproviders.elasticsearch</a> &gt; <span class="el_source">AbstractIndexConfig.java</span></div><h1>AbstractIndexConfig.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.searchservice.dataproviders.elasticsearch;
+
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
+import co.elastic.clients.elasticsearch.indices.OpenRequest;
+import co.elastic.clients.elasticsearch.indices.CloseIndexRequest;
+import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
+import co.elastic.clients.elasticsearch.indices.PutIndicesSettingsRequest;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+
+import java.io.StringReader;
+
+public abstract class AbstractIndexConfig implements ApplicationRunner {
+
+    private final ElasticsearchClient elasticsearchClient;
+    private final String indexName;
+
+<span class="fc" id="L19">    protected AbstractIndexConfig(ElasticsearchClient elasticsearchClient, String indexName) {</span>
+<span class="fc" id="L20">        this.elasticsearchClient = elasticsearchClient;</span>
+<span class="fc" id="L21">        this.indexName = indexName;</span>
+<span class="fc" id="L22">    }</span>
+
+    public abstract String getSettings();
+    public abstract String getMappings();
+
+    @Override
+    public void run(ApplicationArguments args) {
+        try {
+<span class="fc" id="L30">            closeIndex();</span>
+<span class="fc" id="L31">        } catch (Exception ignored) {</span>
+            // Index might not exist yet
+<span class="fc" id="L33">        }</span>
+<span class="fc" id="L34">        createOrUpdateIndex();</span>
+<span class="fc" id="L35">        openIndex();</span>
+<span class="fc" id="L36">    }</span>
+
+    private void createOrUpdateIndex() {
+<span class="fc" id="L39">        String body = String.format(&quot;&quot;&quot;</span>
+            {
+              &quot;settings&quot; : %s,
+              &quot;mappings&quot; : %s
+            }
+<span class="fc" id="L44">            &quot;&quot;&quot;, getSettings(), getMappings());</span>
+
+        try {
+<span class="fc" id="L47">            CreateIndexRequest createRequest = CreateIndexRequest.of(c -&gt; c</span>
+<span class="fc" id="L48">                .index(indexName)</span>
+<span class="fc" id="L49">                .withJson(new StringReader(body))</span>
+            );
+<span class="fc" id="L51">            elasticsearchClient.indices().create(createRequest);</span>
+<span class="fc" id="L52">        } catch (Exception e) {</span>
+            try {
+<span class="fc" id="L54">                PutIndicesSettingsRequest settingsRequest = PutIndicesSettingsRequest.of(s -&gt; s</span>
+<span class="fc" id="L55">                    .index(indexName)</span>
+<span class="fc" id="L56">                    .withJson(new StringReader(getSettings()))</span>
+                );
+<span class="fc" id="L58">                elasticsearchClient.indices().putSettings(settingsRequest);</span>
+
+<span class="fc" id="L60">                PutMappingRequest mappingsRequest = PutMappingRequest.of(m -&gt; m</span>
+<span class="fc" id="L61">                    .index(indexName)</span>
+<span class="fc" id="L62">                    .withJson(new StringReader(getMappings()))</span>
+                );
+<span class="fc" id="L64">                elasticsearchClient.indices().putMapping(mappingsRequest);</span>
+<span class="nc" id="L65">            } catch (Exception ex) {</span>
+<span class="nc" id="L66">                throw new RuntimeException(&quot;Failed to create or update index&quot;, ex);</span>
+<span class="fc" id="L67">            }</span>
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">    }</span>
+
+    private void openIndex() {
+        try {
+<span class="fc" id="L73">            OpenRequest request = OpenRequest.of(o -&gt; o.index(indexName));</span>
+<span class="fc" id="L74">            elasticsearchClient.indices().open(request);</span>
+<span class="nc" id="L75">        } catch (Exception e) {</span>
+<span class="nc" id="L76">            throw new RuntimeException(&quot;Failed to open index&quot;, e);</span>
+<span class="fc" id="L77">        }</span>
+<span class="fc" id="L78">    }</span>
+
+    private void closeIndex() {
+        try {
+<span class="fc" id="L82">            CloseIndexRequest request = CloseIndexRequest.of(c -&gt; c.index(indexName));</span>
+<span class="fc" id="L83">            elasticsearchClient.indices().close(request);</span>
+<span class="fc" id="L84">        } catch (Exception e) {</span>
+<span class="fc" id="L85">            throw new RuntimeException(&quot;Failed to close index&quot;, e);</span>
+<span class="fc" id="L86">        }</span>
+<span class="fc" id="L87">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

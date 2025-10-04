@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - WebhookControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>WebhookControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.simonjamesrowe.apigateway.test.restcontroller.html">com.simonjamesrowe.apigateway.test.restcontroller</a> &gt; WebhookControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.869s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">webhookHandlerShouldBeSecured()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">webhookHandlerShouldProduceMessageToKafkaTopic()</td>
+<td class="success">0.854s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-10-04T09:13:49.771+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest]: WebhookControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-04T09:13:49.773+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.simonjamesrowe.apigateway.ApiGatewayApplication for test class com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2025-10-04T09:13:49.788+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : Starting WebhookControllerTest using Java 21.0.2 with PID 46798 (started by simonrowe in /Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/api-gateway)
+2025-10-04T09:13:49.788+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : The following 1 profile is active: &quot;webhookControllerTest&quot;
+2025-10-04T09:13:49.900+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-10-04T09:13:49.902+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+2025-10-04T09:13:49.946+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-10-04T09:13:49.947+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-04T09:13:49.947+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-04T09:13:49.958+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-04T09:13:49.958+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 169 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-10-04T09:13:50.027+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-04T09:13:50.059+01:00  INFO 46798 --- [api-gateway] [localhost:27017] [                                                 ] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.lambda$open$0(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:76) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:105) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 4 common frames omitted
+
+2025-10-04T09:13:50.059+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] org.mongodb.driver.client                : MongoClient with metadata {&quot;driver&quot;: {&quot;name&quot;: &quot;mongo-java-driver|sync|spring-boot&quot;, &quot;version&quot;: &quot;5.0.1&quot;}, &quot;os&quot;: {&quot;type&quot;: &quot;Darwin&quot;, &quot;name&quot;: &quot;Mac OS X&quot;, &quot;architecture&quot;: &quot;aarch64&quot;, &quot;version&quot;: &quot;15.1&quot;}, &quot;platform&quot;: &quot;Java/GraalVM Community/21.0.2+13-jvmci-23.1-b30&quot;} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@40f897c0], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@30705816, com.mongodb.Jep395RecordCodecProvider@4dd81e40, com.mongodb.KotlinCodecProvider@4054ec38]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@b5a4c2f], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-10-04T09:13:50.076+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-04T09:13:50.136+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63496 (http) with context path '/'
+2025-10-04T09:13:50.163+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:33269]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-search-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = search-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 20
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class com.simonjamesrowe.model.serialization.WebhookEventDeserializer
+
+2025-10-04T09:13:50.216+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565630265
+2025-10-04T09:13:50.272+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Subscribed to topic(s): LOCAL_EVENTS
+2025-10-04T09:13:50.282+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : Started WebhookControllerTest in 0.508 seconds (process running for 26.217)
+2025-10-04T09:13:50.603+01:00  WARN 46798 --- [api-gateway] [        kafka-1] [                                                 ] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-search-service-1, groupId=search-service] Error while fetching metadata with correlation id 2 : {LOCAL_EVENTS=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-04T09:13:50.603+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-search-service-1, groupId=search-service] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+Request method:	POST
+Request URI:	http://localhost:63496/webhook
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;event&quot;: &quot;entry.update&quot;,
+    &quot;created_at&quot;: &quot;2021-01-02T15:49:35.918Z&quot;,
+    &quot;model&quot;: &quot;blog&quot;,
+    &quot;entry&quot;: {
+        &quot;published&quot;: true,
+        &quot;tags&quot;: [
+            {
+                &quot;_id&quot;: &quot;5e495da7bc8d7d001ddbd7c5&quot;,
+                &quot;name&quot;: &quot;Kubernetes&quot;,
+                &quot;createdAt&quot;: &quot;2020-02-16T15:20:07.909Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-02-16T22:04:13.013Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5e495da7bc8d7d001ddbd7c5&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f02da709d8081001fd38fa4&quot;,
+                &quot;name&quot;: &quot;Jenkins&quot;,
+                &quot;createdAt&quot;: &quot;2020-07-06T08:01:52.572Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-07-06T08:01:52.572Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5f02da709d8081001fd38fa4&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f03901b9d8081001fd38fa7&quot;,
+                &quot;name&quot;: &quot;Strapi&quot;,
+                &quot;createdAt&quot;: &quot;2020-07-06T20:56:59.818Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-07-06T20:56:59.818Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5f03901b9d8081001fd38fa7&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f0390249d8081001fd38fa8&quot;,
+                &quot;name&quot;: &quot;TLS&quot;,
+                &quot;createdAt&quot;: &quot;2020-07-06T20:57:08.354Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-07-06T20:57:08.354Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5f0390249d8081001fd38fa8&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f0390329d8081001fd38fa9&quot;,
+                &quot;name&quot;: &quot;MongoDB&quot;,
+                &quot;createdAt&quot;: &quot;2020-07-06T20:57:22.633Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-07-06T20:57:22.633Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5f0390329d8081001fd38fa9&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f0390499d8081001fd38faa&quot;,
+                &quot;name&quot;: &quot;React&quot;,
+                &quot;createdAt&quot;: &quot;2020-07-06T20:57:45.054Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-07-06T20:57:45.054Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;id&quot;: &quot;5f0390499d8081001fd38faa&quot;
+            }
+        ],
+        &quot;skills&quot;: [
+            {
+                &quot;_id&quot;: &quot;5f635b6a5ee4c9001d2b9632&quot;,
+                &quot;name&quot;: &quot;Spring Boot&quot;,
+                &quot;rating&quot;: 9.7,
+                &quot;order&quot;: 1,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:49:46.739Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-21T21:05:20.308Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6851a85ee4c9001d2b96af&quot;,
+                    &quot;name&quot;: &quot;spring-boot.jpeg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;spring_boot_5ee37de4c1&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 7.98,
+                    &quot;width&quot;: 400,
+                    &quot;height&quot;: 400,
+                    &quot;url&quot;: &quot;/uploads/spring_boot_5ee37de4c1.jpeg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_spring-boot.jpeg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_spring_boot_5ee37de4c1&quot;,
+                            &quot;ext&quot;: &quot;.jpeg&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 156,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 5.21,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_spring_boot_5ee37de4c1.jpeg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635b6a5ee4c9001d2b9632&quot;,
+                        &quot;5feed4c667bdd6001e9c12d0&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T07:09:28.458Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2021-01-01T21:02:32.991Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6851a85ee4c9001d2b96af&quot;
+                },
+                &quot;description&quot;: &quot;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can \&quot;just run\&quot;.\n\n- Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)\n- Provide opinionated 'starter' dependencies to simplify your build configuration\n- Automatically configure Spring and 3rd party libraries whenever possible\n- Provide production-ready features such as metrics, health checks, and externalized configuration&quot;,
+                &quot;id&quot;: &quot;5f635b6a5ee4c9001d2b9632&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635b555ee4c9001d2b9631&quot;,
+                &quot;name&quot;: &quot;Kotlin&quot;,
+                &quot;rating&quot;: 8,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:49:25.636Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-21T21:01:54.939Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f65ec765ee4c9001d2b9676&quot;,
+                    &quot;name&quot;: &quot;kotlin_250x250.png&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;kotlin_250x250_dfc086e243&quot;,
+                    &quot;ext&quot;: &quot;.png&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 3.69,
+                    &quot;width&quot;: 250,
+                    &quot;height&quot;: 250,
+                    &quot;url&quot;: &quot;/uploads/kotlin_250x250_dfc086e243.png&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_kotlin_250x250.png&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_kotlin_250x250_dfc086e243&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 156,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 6.89,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_kotlin_250x250_dfc086e243.png&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f6359c55ee4c9001d2b9627&quot;,
+                        &quot;5f635b555ee4c9001d2b9631&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-19T11:33:10.896Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T06:17:06.069Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f65ec765ee4c9001d2b9676&quot;
+                },
+                &quot;description&quot;: &quot;- Lambda expressions + Inline functions = performant custom control structures\n- Extension functions\n- Null-safety\n- Smart casts\n- String templates\n- Properties\n- Primary constructors\n- First-class delegation\n- Type inference for variable and property types\n- Singletons\n- Declaration-site variance &amp; Type projections\n- Range expressions\n- Operator overloading\n- Companion objects\n- Data classes\n- Separate interfaces for read-only and mutable collections\n- Coroutines&quot;,
+                &quot;id&quot;: &quot;5f635b555ee4c9001d2b9631&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635c2e5ee4c9001d2b963c&quot;,
+                &quot;name&quot;: &quot;Jenkins Pipeline&quot;,
+                &quot;rating&quot;: 8,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:53:02.588Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-22T06:41:07.845Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f65ed105ee4c9001d2b967c&quot;,
+                    &quot;name&quot;: &quot;jenkins-5-569553.png&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;jenkins_5_569553_cb54b85a4c&quot;,
+                    &quot;ext&quot;: &quot;.png&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 12.15,
+                    &quot;width&quot;: 256,
+                    &quot;height&quot;: 256,
+                    &quot;url&quot;: &quot;/uploads/jenkins_5_569553_cb54b85a4c.png&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_jenkins-5-569553.png&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_jenkins_5_569553_cb54b85a4c&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 156,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 16.21,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_jenkins_5_569553_cb54b85a4c.png&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635a195ee4c9001d2b962a&quot;,
+                        &quot;5f635c2e5ee4c9001d2b963c&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-19T11:35:44.624Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:16:50.216Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f65ed105ee4c9001d2b967c&quot;
+                },
+                &quot;description&quot;: &quot;Pipeline is a suite of plugins that supports implementing and integrating continuous delivery pipelines into Jenkins. Pipeline provides an extensible set of tools for modelling simple-to-complex delivery pipelines \&quot;as code\&quot; via the Pipeline DSL (groovy). &quot;,
+                &quot;id&quot;: &quot;5f635c2e5ee4c9001d2b963c&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635c375ee4c9001d2b963d&quot;,
+                &quot;name&quot;: &quot;Jenkins X&quot;,
+                &quot;rating&quot;: 9,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:53:11.954Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-22T21:19:16.887Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6616545ee4c9001d2b9690&quot;,
+                    &quot;name&quot;: &quot;jenkinsx.png&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;jenkinsx_d56c6fea15&quot;,
+                    &quot;ext&quot;: &quot;.png&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 25.16,
+                    &quot;width&quot;: 696,
+                    &quot;height&quot;: 398,
+                    &quot;url&quot;: &quot;/uploads/jenkinsx_d56c6fea15.png&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_jenkinsx.png&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_jenkinsx_d56c6fea15&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 245,
+                            &quot;height&quot;: 140,
+                            &quot;size&quot;: 9.18,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_jenkinsx_d56c6fea15.png&quot;
+                        },
+                        &quot;small&quot;: {
+                            &quot;name&quot;: &quot;small_jenkinsx.png&quot;,
+                            &quot;hash&quot;: &quot;small_jenkinsx_d56c6fea15&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 500,
+                            &quot;height&quot;: 286,
+                            &quot;size&quot;: 22.51,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/small_jenkinsx_d56c6fea15.png&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f0413739d8081001fd38fb6&quot;,
+                        &quot;5f635c375ee4c9001d2b963d&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-19T14:31:48.129Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:17:01.500Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6616545ee4c9001d2b9690&quot;
+                },
+                &quot;description&quot;: &quot;Jenkins X provides pipeline automation, built-in GitOps, and preview environments to help teams collaborate and accelerate their software delivery at any scale. Jenkins X builds upon the following core components:\n- Kubernetes and Docker\n- Helm and Draft&quot;,
+                &quot;id&quot;: &quot;5f635c375ee4c9001d2b963d&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635f8f5ee4c9001d2b966c&quot;,
+                &quot;name&quot;: &quot;Helm&quot;,
+                &quot;rating&quot;: 8,
+                &quot;createdAt&quot;: &quot;2020-09-17T13:07:27.527Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-30T06:20:10.213Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6854785ee4c9001d2b96cf&quot;,
+                    &quot;name&quot;: &quot;helm.jpg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;helm_9127651c35&quot;,
+                    &quot;ext&quot;: &quot;.jpg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;size&quot;: 12.82,
+                    &quot;width&quot;: 366,
+                    &quot;height&quot;: 366,
+                    &quot;url&quot;: &quot;/uploads/helm_9127651c35.jpg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_helm.jpg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_helm_9127651c35&quot;,
+                            &quot;ext&quot;: &quot;.jpg&quot;,
+                            &quot;mime&quot;: &quot;image/jpeg&quot;,
+                            &quot;width&quot;: 156,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 5.11,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_helm_9127651c35.jpg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635f8f5ee4c9001d2b966c&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T07:21:28.306Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:21:30.887Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6854785ee4c9001d2b96cf&quot;
+                },
+                &quot;description&quot;: &quot;Helm is a tool that streamlines installing and managing Kubernetes applications. ... A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, etc,&quot;,
+                &quot;id&quot;: &quot;5f635f8f5ee4c9001d2b966c&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635f995ee4c9001d2b966d&quot;,
+                &quot;name&quot;: &quot;Chart Museum&quot;,
+                &quot;rating&quot;: 7,
+                &quot;createdAt&quot;: &quot;2020-09-17T13:07:37.145Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-30T06:22:03.609Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6854c05ee4c9001d2b96d1&quot;,
+                    &quot;name&quot;: &quot;chart-museum.png&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;chart_museum_a56509005a&quot;,
+                    &quot;ext&quot;: &quot;.png&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 72.28,
+                    &quot;width&quot;: 500,
+                    &quot;height&quot;: 225,
+                    &quot;url&quot;: &quot;/uploads/chart_museum_a56509005a.png&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_chart-museum.png&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_chart_museum_a56509005a&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 245,
+                            &quot;height&quot;: 110,
+                            &quot;size&quot;: 29.64,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_chart_museum_a56509005a.png&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635f995ee4c9001d2b966d&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T07:22:40.798Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:22:43.401Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6854c05ee4c9001d2b96d1&quot;
+                },
+                &quot;description&quot;: &quot;ChartMuseum is an open-source Helm Chart Repository written in Go (Golang), with support for cloud storage backends, including Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage, Alibaba Cloud OSS Storage and Openstack Object Storage.&quot;,
+                &quot;id&quot;: &quot;5f635f995ee4c9001d2b966d&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635c185ee4c9001d2b963a&quot;,
+                &quot;name&quot;: &quot;Maven&quot;,
+                &quot;rating&quot;: 9.6,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:52:40.922Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-22T06:36:50.576Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6853265ee4c9001d2b96bf&quot;,
+                    &quot;name&quot;: &quot;maven.png&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;maven_8510b1d6fa&quot;,
+                    &quot;ext&quot;: &quot;.png&quot;,
+                    &quot;mime&quot;: &quot;image/png&quot;,
+                    &quot;size&quot;: 30.77,
+                    &quot;width&quot;: 1280,
+                    &quot;height&quot;: 324,
+                    &quot;url&quot;: &quot;/uploads/maven_8510b1d6fa.png&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_maven.png&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_maven_8510b1d6fa&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 245,
+                            &quot;height&quot;: 62,
+                            &quot;size&quot;: 10.07,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_maven_8510b1d6fa.png&quot;
+                        },
+                        &quot;large&quot;: {
+                            &quot;name&quot;: &quot;large_maven.png&quot;,
+                            &quot;hash&quot;: &quot;large_maven_8510b1d6fa&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 1000,
+                            &quot;height&quot;: 253,
+                            &quot;size&quot;: 68.02,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/large_maven_8510b1d6fa.png&quot;
+                        },
+                        &quot;medium&quot;: {
+                            &quot;name&quot;: &quot;medium_maven.png&quot;,
+                            &quot;hash&quot;: &quot;medium_maven_8510b1d6fa&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 750,
+                            &quot;height&quot;: 190,
+                            &quot;size&quot;: 46.3,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/medium_maven_8510b1d6fa.png&quot;
+                        },
+                        &quot;small&quot;: {
+                            &quot;name&quot;: &quot;small_maven.png&quot;,
+                            &quot;hash&quot;: &quot;small_maven_8510b1d6fa&quot;,
+                            &quot;ext&quot;: &quot;.png&quot;,
+                            &quot;mime&quot;: &quot;image/png&quot;,
+                            &quot;width&quot;: 500,
+                            &quot;height&quot;: 127,
+                            &quot;size&quot;: 27.01,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/small_maven_8510b1d6fa.png&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635c185ee4c9001d2b963a&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T07:15:50.288Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:15:57.208Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6853265ee4c9001d2b96bf&quot;
+                },
+                &quot;description&quot;: &quot;Maven is a build automation tool used primarily for Java projects. Maven can also be used to build and manage projects written in C#, Ruby, Scala, and other languages. \n\nMaven addresses two aspects of building software: how software is built, and its dependencies. An XML file describes the software project being built, its dependencies on other external modules and components, the build order, directories, and required plug-ins. &quot;,
+                &quot;id&quot;: &quot;5f635c185ee4c9001d2b963a&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635c4f5ee4c9001d2b963f&quot;,
+                &quot;name&quot;: &quot;Tekton&quot;,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:53:35.722Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-22T21:20:48.795Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;rating&quot;: 8,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f6853a55ee4c9001d2b96c7&quot;,
+                    &quot;name&quot;: &quot;tekton.jpeg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;tekton_8b8bad63e8&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;size&quot;: 13.24,
+                    &quot;width&quot;: 213,
+                    &quot;height&quot;: 237,
+                    &quot;url&quot;: &quot;/uploads/tekton_8b8bad63e8.jpeg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_tekton.jpeg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_tekton_8b8bad63e8&quot;,
+                            &quot;ext&quot;: &quot;.jpeg&quot;,
+                            &quot;mime&quot;: &quot;image/jpeg&quot;,
+                            &quot;width&quot;: 140,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 7.5,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_tekton_8b8bad63e8.jpeg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635c4f5ee4c9001d2b963f&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T07:17:57.258Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T07:17:59.250Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f6853a55ee4c9001d2b96c7&quot;
+                },
+                &quot;description&quot;: &quot;The Tekton Pipelines project provides k8s-style resources for declaring CI/CD-style pipelines.\n\nTekton Pipelines are Cloud Native:\n\n- Run on Kubernetes\n- Have Kubernetes clusters as a first class type\n- Use containers as their building blocks\n&quot;,
+                &quot;id&quot;: &quot;5f635c4f5ee4c9001d2b963f&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635ca45ee4c9001d2b9643&quot;,
+                &quot;name&quot;: &quot;Kubernetes&quot;,
+                &quot;rating&quot;: 8,
+                &quot;createdAt&quot;: &quot;2020-09-17T12:55:00.632Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-22T21:28:44.327Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f66163d5ee4c9001d2b968e&quot;,
+                    &quot;name&quot;: &quot;kubernetes.jpeg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;kubernetes_c13e33fa8c&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;size&quot;: 17.62,
+                    &quot;width&quot;: 400,
+                    &quot;height&quot;: 388,
+                    &quot;url&quot;: &quot;/uploads/kubernetes_c13e33fa8c.jpeg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_kubernetes.jpeg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_kubernetes_c13e33fa8c&quot;,
+                            &quot;ext&quot;: &quot;.jpeg&quot;,
+                            &quot;mime&quot;: &quot;image/jpeg&quot;,
+                            &quot;width&quot;: 161,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 6.17,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_kubernetes_c13e33fa8c.jpeg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f0408c59d8081001fd38fb1&quot;,
+                        &quot;5f635ca45ee4c9001d2b9643&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-19T14:31:25.284Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T12:08:28.703Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f66163d5ee4c9001d2b968e&quot;
+                },
+                &quot;description&quot;: &quot;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes provides you with:\n\n- **Service discovery and load balancing**\n- **Automated rollouts and rollbacks**: You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to make the best use of your resources.\n- **Self-healing** Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.\n- **Secret and configuration management** &quot;,
+                &quot;id&quot;: &quot;5f635ca45ee4c9001d2b9643&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635e935ee4c9001d2b9665&quot;,
+                &quot;name&quot;: &quot;Typescript&quot;,
+                &quot;rating&quot;: 7.5,
+                &quot;createdAt&quot;: &quot;2020-09-17T13:03:15.410Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-27T08:10:06.054Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f689aee76320d001e515e8b&quot;,
+                    &quot;name&quot;: &quot;ts.jpg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;ts_1c7c89d06d&quot;,
+                    &quot;ext&quot;: &quot;.jpg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;size&quot;: 11.59,
+                    &quot;width&quot;: 400,
+                    &quot;height&quot;: 400,
+                    &quot;url&quot;: &quot;/uploads/ts_1c7c89d06d.jpg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_ts.jpg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_ts_1c7c89d06d&quot;,
+                            &quot;ext&quot;: &quot;.jpg&quot;,
+                            &quot;mime&quot;: &quot;image/jpeg&quot;,
+                            &quot;width&quot;: 156,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 4.38,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_ts_1c7c89d06d.jpg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f635e935ee4c9001d2b9665&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-21T12:22:06.356Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T12:22:08.459Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f689aee76320d001e515e8b&quot;
+                },
+                &quot;description&quot;: &quot;TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript&quot;,
+                &quot;id&quot;: &quot;5f635e935ee4c9001d2b9665&quot;
+            },
+            {
+                &quot;_id&quot;: &quot;5f635e625ee4c9001d2b9660&quot;,
+                &quot;name&quot;: &quot;React&quot;,
+                &quot;rating&quot;: 8.5,
+                &quot;createdAt&quot;: &quot;2020-09-17T13:02:26.277Z&quot;,
+                &quot;updatedAt&quot;: &quot;2020-09-27T08:07:00.023Z&quot;,
+                &quot;__v&quot;: 0,
+                &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                &quot;image&quot;: {
+                    &quot;_id&quot;: &quot;5f66167a5ee4c9001d2b9692&quot;,
+                    &quot;name&quot;: &quot;react.jpeg&quot;,
+                    &quot;alternativeText&quot;: &quot;&quot;,
+                    &quot;caption&quot;: &quot;&quot;,
+                    &quot;hash&quot;: &quot;react_56f28418d3&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;size&quot;: 11.98,
+                    &quot;width&quot;: 500,
+                    &quot;height&quot;: 353,
+                    &quot;url&quot;: &quot;/uploads/react_56f28418d3.jpeg&quot;,
+                    &quot;formats&quot;: {
+                        &quot;thumbnail&quot;: {
+                            &quot;name&quot;: &quot;thumbnail_react.jpeg&quot;,
+                            &quot;hash&quot;: &quot;thumbnail_react_56f28418d3&quot;,
+                            &quot;ext&quot;: &quot;.jpeg&quot;,
+                            &quot;mime&quot;: &quot;image/jpeg&quot;,
+                            &quot;width&quot;: 221,
+                            &quot;height&quot;: 156,
+                            &quot;size&quot;: 4.08,
+                            &quot;path&quot;: null,
+                            &quot;url&quot;: &quot;/uploads/thumbnail_react_56f28418d3.jpeg&quot;
+                        }
+                    },
+                    &quot;provider&quot;: &quot;local&quot;,
+                    &quot;related&quot;: [
+                        &quot;5f04152d9d8081001fd38fb9&quot;,
+                        &quot;5f635e625ee4c9001d2b9660&quot;
+                    ],
+                    &quot;createdAt&quot;: &quot;2020-09-19T14:32:26.690Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2020-09-21T12:19:36.732Z&quot;,
+                    &quot;__v&quot;: 0,
+                    &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+                    &quot;id&quot;: &quot;5f66167a5ee4c9001d2b9692&quot;
+                },
+                &quot;description&quot;: &quot;React.js is an open-source JavaScript library that is used for building user interfaces specifically for single-page applications. It's used for handling the view layer for web and mobile apps.\n\nReact allows developers to create large web applications that can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. It works only on user interfaces in the application&quot;,
+                &quot;id&quot;: &quot;5f635e625ee4c9001d2b9660&quot;
+            }
+        ],
+        &quot;_id&quot;: &quot;5f0215c69d8081001fd38fa1&quot;,
+        &quot;title&quot;: &quot;Creating a rich web app that can be hosted from home&quot;,
+        &quot;shortDescription&quot;: &quot;A quick introduction into the various components of my personal website including jenkinsx, kubernetes, letsencrypt and more.&quot;,
+        &quot;createdAt&quot;: &quot;2020-07-05T18:02:46.731Z&quot;,
+        &quot;updatedAt&quot;: &quot;2021-01-02T15:49:35.901Z&quot;,
+        &quot;__v&quot;: 0,
+        &quot;image&quot;: {
+            &quot;_id&quot;: &quot;5f6616045ee4c9001d2b968a&quot;,
+            &quot;name&quot;: &quot;Website Icon.jpeg&quot;,
+            &quot;alternativeText&quot;: &quot;&quot;,
+            &quot;caption&quot;: &quot;&quot;,
+            &quot;hash&quot;: &quot;Website_Icon_727b161f01&quot;,
+            &quot;ext&quot;: &quot;.jpeg&quot;,
+            &quot;mime&quot;: &quot;image/jpeg&quot;,
+            &quot;size&quot;: 29.24,
+            &quot;width&quot;: 801,
+            &quot;height&quot;: 401,
+            &quot;url&quot;: &quot;/uploads/Website_Icon_727b161f01.jpeg&quot;,
+            &quot;formats&quot;: {
+                &quot;thumbnail&quot;: {
+                    &quot;name&quot;: &quot;thumbnail_Website Icon.jpeg&quot;,
+                    &quot;hash&quot;: &quot;thumbnail_Website_Icon_727b161f01&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;width&quot;: 245,
+                    &quot;height&quot;: 123,
+                    &quot;size&quot;: 6.52,
+                    &quot;path&quot;: null,
+                    &quot;url&quot;: &quot;/uploads/thumbnail_Website_Icon_727b161f01.jpeg&quot;
+                },
+                &quot;medium&quot;: {
+                    &quot;name&quot;: &quot;medium_Website Icon.jpeg&quot;,
+                    &quot;hash&quot;: &quot;medium_Website_Icon_727b161f01&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;width&quot;: 750,
+                    &quot;height&quot;: 375,
+                    &quot;size&quot;: 27.25,
+                    &quot;path&quot;: null,
+                    &quot;url&quot;: &quot;/uploads/medium_Website_Icon_727b161f01.jpeg&quot;
+                },
+                &quot;small&quot;: {
+                    &quot;name&quot;: &quot;small_Website Icon.jpeg&quot;,
+                    &quot;hash&quot;: &quot;small_Website_Icon_727b161f01&quot;,
+                    &quot;ext&quot;: &quot;.jpeg&quot;,
+                    &quot;mime&quot;: &quot;image/jpeg&quot;,
+                    &quot;width&quot;: 500,
+                    &quot;height&quot;: 250,
+                    &quot;size&quot;: 16.14,
+                    &quot;path&quot;: null,
+                    &quot;url&quot;: &quot;/uploads/small_Website_Icon_727b161f01.jpeg&quot;
+                }
+            },
+            &quot;provider&quot;: &quot;local&quot;,
+            &quot;related&quot;: [
+                &quot;5f0215c69d8081001fd38fa1&quot;
+            ],
+            &quot;createdAt&quot;: &quot;2020-09-19T14:30:28.441Z&quot;,
+            &quot;updatedAt&quot;: &quot;2020-09-19T14:30:33.163Z&quot;,
+            &quot;__v&quot;: 0,
+            &quot;created_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+            &quot;updated_by&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+            &quot;id&quot;: &quot;5f6616045ee4c9001d2b968a&quot;
+        },
+        &quot;content&quot;: &quot;I'm the kind of person that learns by doing - the more I do, the more it sinks in. Whilst attempting to keep my skills up to date, I had the idea of building a rich web application which would serve up my CV, and it could also double as a place to hone and demonstrate my skillsets in certain technologies. Eventually, I could even start blogging about these experiences. \n\nThe first thing I decided I would need would be a CMS (Content Management System). The content of my website would have to be dynamic, as I would like to keep my CV and blog up to date.  There were many options available here, but I finally settled on a headless CMS named ([strapi](https://strapi.io/)). Strapi would also require some sort of persistence layer, and  [mongodb](https://www.mongodb.com/ seemed to be a sensible choice.\n\nFor the web interface itself, there was a bit of competition between React and Angular. After spending years commercially working on Angular projects, I decided that React could be a good thing to learn and went with that.  \n\nnpx create-react-app my-app --template typescript is the command used to boostrap my react SPA (single page application) and I found a boostrap template from [here](https://wrapbootstrap.com/).\n\nSo far so good right ? I had picked the basic building blocks for building this dynamic CV/blog, but where would I run it ? I had a perfectly good iMac that was unused, and a fast enough internet connection. This app doesnt need to be highly available, as its just a little hobby app so this would suit well. I could use [ngrok](https://ngrok.com/) to make my app available to the internet, and I could use [Route 53](https://aws.amazon.com/route53/) to set up and configure my domain.\n\nKubernetes is a very popular way or running cloud native apps, so this was a pretty easy choice, the only issue was what flavour of it would work best on a mac. I started off with minikube, but started to have issues with persistent volumes, so eventually went with [kind (kubernetes in docker)](https://kind.sigs.k8s.io/). I could easily install nginx ingress controller, and it was super easy to configure.\n\nThe last thing to consider was how to deploy the individual components or services to the kubernetes cluster. One of my requirements was that I would want to make continual improvments to my app, so the deployment process must be as simple as possible. I would want to have git projects for each service,  build a container image, and deploy a helm chart (a helm chart is a collection of files that describe a related set of Kubernetes resources).  [Jenkins X](https://jenkins-x.io/) describes itself as *Jenkins X provides pipeline automation, built-in GitOps, and preview environments to help teams collaborate and accelerate their software delivery at any scale*. There was out of the box support for kubernetes flavours such as GKE (google cloud) and EKS (amazon web services), but a bit of customisation would be required if i wanted to run this on my local kubernetes cluster. This was easy enough and I was able to configure the following:\n- [Harbor](https://goharbor.io/) as the container registry of choice\n- [Cert Manager](https://cert-manager.io/) - configure cert manager to generate lets encrpt certificates using ACME challennges based on my use of AWS Route 53 for dns.\n- Installed MongoDB in the control plane.\n\nOverall my initial architecture looked something like this:\n\n![Website V1](/uploads/Website_V1_c3889a1afa.jpeg)\n\n\n*All source code for this app can be found here: (https://github.com/simonjamesrowe)*&quot;,
+        &quot;updated_by&quot;: {
+            &quot;isActive&quot;: true,
+            &quot;blocked&quot;: false,
+            &quot;roles&quot;: [
+                &quot;5f6314095ee4c9001d2b959f&quot;
+            ],
+            &quot;_id&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;,
+            &quot;username&quot;: &quot;simon.rowe@gmail.com&quot;,
+            &quot;email&quot;: &quot;simon.rowe@gmail.com&quot;,
+            &quot;createdAt&quot;: &quot;2020-02-15T18:34:53.155Z&quot;,
+            &quot;updatedAt&quot;: &quot;2020-09-17T07:45:13.526Z&quot;,
+            &quot;__v&quot;: 0,
+            &quot;id&quot;: &quot;5e4839cd1c2d53001dcc0696&quot;
+        },
+        &quot;id&quot;: &quot;5f0215c69d8081001fd38fa1&quot;
+    }
+}
+2025-10-04T09:13:50.737+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Discovered group coordinator localhost:33269 (id: 2147483646 rack: null)
+2025-10-04T09:13:50.740+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] (Re-)joining group
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-10-04T09:13:50.782+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Request joining group due to: need to re-join with the given member-id: consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35
+2025-10-04T09:13:50.782+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] (Re-)joining group
+2025-10-04T09:13:50.809+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Successfully joined group with generation Generation{generationId=1, memberId='consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35', protocol='range'}
+2025-10-04T09:13:50.812+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Finished assignment for group at generation 1: {consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35=Assignment(partitions=[LOCAL_EVENTS-0])}
+2025-10-04T09:13:50.850+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Successfully synced group in generation Generation{generationId=1, memberId='consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35', protocol='range'}
+2025-10-04T09:13:50.850+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Notifying assignor about the new Assignment(partitions=[LOCAL_EVENTS-0])
+2025-10-04T09:13:50.852+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-search-service-1, groupId=search-service] Adding newly assigned partitions: LOCAL_EVENTS-0
+2025-10-04T09:13:50.873+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Found no committed offset for partition LOCAL_EVENTS-0
+2025-10-04T09:13:50.889+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-search-service-1, groupId=search-service] Resetting offset for partition LOCAL_EVENTS-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:33269 (id: 1 rack: null)], epoch=0}}.
+2025-10-04T09:13:50.890+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.s.k.l.KafkaMessageListenerContainer    : search-service: partitions assigned: [LOCAL_EVENTS-0]
+2025-10-04T09:13:50.939+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:33269]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = api-gateway-producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class com.simonjamesrowe.model.serialization.WebhookEventSerializer
+
+2025-10-04T09:13:50.940+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:13:50.945+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=api-gateway-producer-1] Instantiated an idempotent producer.
+2025-10-04T09:13:50.954+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:13:50.955+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:13:50.955+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565630954
+2025-10-04T09:13:50.965+01:00  INFO 46798 --- [api-gateway] [eway-producer-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Producer clientId=api-gateway-producer-1] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Sat, 04 Oct 2025 08:13:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+2025-10-04T09:13:51.003+01:00  INFO 46798 --- [api-gateway] [eway-producer-1] [                                                 ] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=api-gateway-producer-1] ProducerId set to 0 with epoch 0
+Request method:	POST
+Request URI:	http://localhost:63496/webhook
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+HTTP/1.1 401 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+WWW-Authenticate: Basic realm=&quot;Realm&quot;
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 04 Oct 2025 08:13:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    &quot;timestamp&quot;: &quot;2025-10-04T08:13:51.149+00:00&quot;,
+    &quot;status&quot;: 401,
+    &quot;error&quot;: &quot;Unauthorized&quot;,
+    &quot;path&quot;: &quot;/webhook&quot;
+}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at 4 Oct 2025, 09:13:54</p>
+</div>
+</div>
+</body>
+</html>

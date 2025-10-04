@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompressFileUseCase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api-gateway</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.apigateway.core.usecase</a> &gt; <span class="el_source">CompressFileUseCase.java</span></div><h1>CompressFileUseCase.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.apigateway.core.usecase;
+
+import io.micrometer.tracing.annotation.NewSpan;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import javax.imageio.ImageIO;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+@Service
+public class CompressFileUseCase implements ICompressFileUseCase {
+
+    private final int compressionThreshold;
+
+<span class="fc" id="L21">    public CompressFileUseCase(@Value(&quot;${image.compressFilesLargerThanKb}&quot;) int compressionThreshold) {</span>
+<span class="fc" id="L22">        this.compressionThreshold = compressionThreshold;</span>
+<span class="fc" id="L23">    }</span>
+
+    @NewSpan(&quot;compressFile&quot;)
+    @Override
+    public byte[] compress(File file, Integer size) {
+        try {
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">            if (size &lt; 1024 * compressionThreshold) {</span>
+<span class="nc" id="L30">                return IOUtils.toByteArray(new FileInputStream(file));</span>
+            }
+
+<span class="fc" id="L33">            BufferedImage original = ImageIO.read(file);</span>
+<span class="fc" id="L34">            int scaledWidth = (int) (original.getWidth() * 0.5);</span>
+<span class="fc" id="L35">            int scaledHeight = (int) (original.getHeight() * 0.5);</span>
+
+<span class="fc" id="L37">            BufferedImage outputImage = new BufferedImage(scaledWidth, scaledHeight, original.getType());</span>
+
+<span class="fc" id="L39">            var g2d = outputImage.createGraphics();</span>
+<span class="fc" id="L40">            g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);</span>
+<span class="fc" id="L41">            g2d.drawImage(original, 0, 0, scaledWidth, scaledHeight, null);</span>
+<span class="fc" id="L42">            g2d.dispose();</span>
+
+<span class="fc" id="L44">            ByteArrayOutputStream compressedBytes = new ByteArrayOutputStream(1024);</span>
+<span class="fc" id="L45">            String extension = file.getName().substring(file.getName().indexOf(&quot;.&quot;) + 1);</span>
+<span class="fc" id="L46">            ImageIO.write(outputImage, extension, compressedBytes);</span>
+<span class="fc" id="L47">            return compressedBytes.toByteArray();</span>
+<span class="nc" id="L48">        } catch (IOException e) {</span>
+<span class="nc" id="L49">            throw new RuntimeException(&quot;Failed to compress file&quot;, e);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

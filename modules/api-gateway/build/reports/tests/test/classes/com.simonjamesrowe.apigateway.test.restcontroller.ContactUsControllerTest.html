@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ContactUsControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ContactUsControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.simonjamesrowe.apigateway.test.restcontroller.html">com.simonjamesrowe.apigateway.test.restcontroller</a> &gt; ContactUsControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">7</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.153s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">[1] firstName=, lastName=Rowe, subject=Hello, email=simon.rowe@gmail.com, content=Message</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[1]</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] firstName=Simon, lastName=, subject=Hello, email=simon.rowe@gmail.com, content=Message</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[2]</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] firstName=Simon, lastName=Rowe, subject=, email=simon.rowe@gmail.com, content=Message</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[3]</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] firstName=Simon, lastName=Rowe, subject=Hello, email=, content=Message</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[4]</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] firstName=Simon, lastName=Rowe, subject=Hello, email=simon.rowe@gmail.com, content=</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[5]</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[6] firstName=Simon, lastName=Rowe, subject=Hello, email=invalidEmailAddress, content=Message</td>
+<td class="success">clientErrorShouldOccurForInvalidFields(String, String, String, String, String)[6]</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldSuccessfullyHandleContactUsRequest()</td>
+<td class="success">shouldSuccessfullyHandleContactUsRequest()</td>
+<td class="success">0.113s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-10-04T09:13:48.885+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.simonjamesrowe.apigateway.test.restcontroller.ContactUsControllerTest]: ContactUsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-04T09:13:48.905+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.simonjamesrowe.apigateway.ApiGatewayApplication for test class com.simonjamesrowe.apigateway.test.restcontroller.ContactUsControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2025-10-04T09:13:48.942+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.ContactUsControllerTest        : Starting ContactUsControllerTest using Java 21.0.2 with PID 46798 (started by simonrowe in /Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/api-gateway)
+2025-10-04T09:13:48.942+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.ContactUsControllerTest        : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-10-04T09:13:49.090+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-04T09:13:49.182+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-04T09:13:49.182+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-04T09:13:49.183+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-10-04T09:13:49.195+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.ContactUsControllerTest        : Started ContactUsControllerTest in 0.281 seconds (process running for 25.131)
+2025-10-04T09:13:49.296+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.e.r.ContactUsController            : Contact Us request made: ContactUsController.ContactUs(firstName=Simon, lastName=Rowe, emailAddress=simon.rowe@gmail.com, subject=Hi, content=This is a test message)
+2025-10-04T09:13:49.367+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'firstName': rejected value []; codes [NotBlank.contactUs.firstName,NotBlank.firstName,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.firstName,firstName]; arguments []; default message [firstName]]; default message [must not be blank]] ]
+2025-10-04T09:13:49.372+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'lastName': rejected value []; codes [NotBlank.contactUs.lastName,NotBlank.lastName,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.lastName,lastName]; arguments []; default message [lastName]]; default message [must not be blank]] ]
+2025-10-04T09:13:49.377+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'subject': rejected value []; codes [NotBlank.contactUs.subject,NotBlank.subject,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.subject,subject]; arguments []; default message [subject]]; default message [must not be blank]] ]
+2025-10-04T09:13:49.380+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'emailAddress': rejected value []; codes [NotBlank.contactUs.emailAddress,NotBlank.emailAddress,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.emailAddress,emailAddress]; arguments []; default message [emailAddress]]; default message [must not be blank]] ]
+2025-10-04T09:13:49.384+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'content': rejected value []; codes [NotBlank.contactUs.content,NotBlank.content,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.content,content]; arguments []; default message [content]]; default message [must not be blank]] ]
+2025-10-04T09:13:49.388+01:00  WARN 46798 --- [api-gateway] [    Test worker] [                                                 ] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController.contactUs(com.simonjamesrowe.apigateway.entrypoints.restcontroller.ContactUsController$ContactUs,java.lang.String): [Field error in object 'contactUs' on field 'emailAddress': rejected value [invalidEmailAddress]; codes [Email.contactUs.emailAddress,Email.emailAddress,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [contactUs.emailAddress,emailAddress]; arguments []; default message [emailAddress],[Ljakarta.validation.constraints.Pattern$Flag;@7d2ffe0c,.*]; default message [must be a well-formed email address]] ]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at 4 Oct 2025, 09:13:54</p>
+</div>
+</div>
+</body>
+</html>

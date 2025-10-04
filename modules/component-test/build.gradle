@@ -1,0 +1,70 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-test'
+    api 'org.springframework.boot:spring-boot-starter-json'
+    api 'commons-io:commons-io:2.11.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    api 'org.springframework.kafka:spring-kafka'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+    testImplementation 'org.springframework.cloud:spring-cloud-vault-config'
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
+    // Test Containers
+    api "org.testcontainers:testcontainers:${testcontainersVersion}"
+    api "org.testcontainers:junit-jupiter:${testcontainersVersion}"
+    api "org.testcontainers:postgresql:${testcontainersVersion}"
+    api "org.testcontainers:mongodb:${testcontainersVersion}"
+    api "org.testcontainers:elasticsearch:${testcontainersVersion}"
+    api "org.testcontainers:kafka:${testcontainersVersion}"
+    api "org.testcontainers:vault:${testcontainersVersion}"
+    api "com.redis:testcontainers-redis:2.2.2"
+
+    // WireMock
+    api 'org.springframework.cloud:spring-cloud-contract-wiremock:4.0.3'
+
+    // JWT and Security
+    api 'com.auth0:java-jwt:4.4.0'
+    api 'com.auth0:jwks-rsa:0.22.1'
+    api 'com.nimbusds:nimbus-jose-jwt:9.37.3'
+
+    // Easy Random for test data generation
+    api 'org.jeasy:easy-random-core:5.0.0'
+
+    // Rest Assured
+    api 'io.rest-assured:rest-assured:5.4.0'
+
+    // Awaitility for async testing
+    api 'org.awaitility:awaitility:4.1.1'
+
+    // Database drivers
+    api 'org.postgresql:postgresql'
+
+    // Web server support for @SpringBootTest
+    testImplementation 'org.springframework.boot:spring-boot-starter-web'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+jar {
+    enabled = true
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+

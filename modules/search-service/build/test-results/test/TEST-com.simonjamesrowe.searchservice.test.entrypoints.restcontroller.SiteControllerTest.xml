@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.simonjamesrowe.searchservice.test.entrypoints.restcontroller.SiteControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-04T08:14:06" hostname="Simons-MacBook-Pro.local" time="0.006">
+  <properties/>
+  <testcase name="searchResultsShouldBeCorrect()" classname="com.simonjamesrowe.searchservice.test.entrypoints.restcontroller.SiteControllerTest" time="0.006"/>
+  <system-out><![CDATA[2025-10-04T09:14:05.998+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.simonjamesrowe.searchservice.test.entrypoints.restcontroller.SiteControllerTest]: SiteControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-04T09:14:06.003+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.simonjamesrowe.searchservice.SearchServiceApplication for test class com.simonjamesrowe.searchservice.test.entrypoints.restcontroller.SiteControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2025-10-04T09:14:06.021+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.r.SiteControllerTest           : Starting SiteControllerTest using Java 21.0.2 with PID 46796 (started by simonrowe in /Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service)
+2025-10-04T09:14:06.021+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.r.SiteControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-04T09:14:06.130+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-04T09:14:06.130+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-04T09:14:06.130+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-04T09:14:06.133+01:00  INFO 46796 --- [search-service] [    Test worker] [                                                 ] c.s.s.t.e.r.SiteControllerTest           : Started SiteControllerTest in 0.128 seconds (process running for 42.199)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

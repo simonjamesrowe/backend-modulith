@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-10-04T08:13:50" hostname="Simons-MacBook-Pro.local" time="0.87">
+  <properties/>
+  <testcase name="webhookHandlerShouldProduceMessageToKafkaTopic()" classname="com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest" time="0.854"/>
+  <testcase name="webhookHandlerShouldBeSecured()" classname="com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest" time="0.015"/>
+  <system-out><![CDATA[2025-10-04T09:13:49.771+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest]: WebhookControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-04T09:13:49.773+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.simonjamesrowe.apigateway.ApiGatewayApplication for test class com.simonjamesrowe.apigateway.test.restcontroller.WebhookControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2025-10-04T09:13:49.788+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : Starting WebhookControllerTest using Java 21.0.2 with PID 46798 (started by simonrowe in /Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/api-gateway)
+2025-10-04T09:13:49.788+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : The following 1 profile is active: "webhookControllerTest"
+2025-10-04T09:13:49.900+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-10-04T09:13:49.902+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+2025-10-04T09:13:49.946+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-10-04T09:13:49.947+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-04T09:13:49.947+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-04T09:13:49.958+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-04T09:13:49.958+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 169 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-10-04T09:13:50.027+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-04T09:13:50.059+01:00  INFO 46798 --- [api-gateway] [localhost:27017] [                                                 ] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.lambda$open$0(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:86) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:76) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:105) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 4 common frames omitted
+
+2025-10-04T09:13:50.059+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.0.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "15.1"}, "platform": "Java/GraalVM Community/21.0.2+13-jvmci-23.1-b30"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@40f897c0], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@30705816, com.mongodb.Jep395RecordCodecProvider@4dd81e40, com.mongodb.KotlinCodecProvider@4054ec38]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@b5a4c2f], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-10-04T09:13:50.076+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-04T09:13:50.136+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63496 (http) with context path '/'
+2025-10-04T09:13:50.163+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:33269]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-search-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = search-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 20
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class com.simonjamesrowe.model.serialization.WebhookEventDeserializer
+
+2025-10-04T09:13:50.216+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:13:50.266+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565630265
+2025-10-04T09:13:50.272+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Subscribed to topic(s): LOCAL_EVENTS
+2025-10-04T09:13:50.282+01:00  INFO 46798 --- [api-gateway] [    Test worker] [                                                 ] c.s.a.t.r.WebhookControllerTest          : Started WebhookControllerTest in 0.508 seconds (process running for 26.217)
+2025-10-04T09:13:50.603+01:00  WARN 46798 --- [api-gateway] [        kafka-1] [                                                 ] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-search-service-1, groupId=search-service] Error while fetching metadata with correlation id 2 : {LOCAL_EVENTS=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-04T09:13:50.603+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-search-service-1, groupId=search-service] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+Request method:	POST
+Request URI:	http://localhost:63496/webhook
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "event": "entry.update",
+    "created_at": "2021-01-02T15:49:35.918Z",
+    "model": "blog",
+    "entry": {
+        "published": true,
+        "tags": [
+            {
+                "_id": "5e495da7bc8d7d001ddbd7c5",
+                "name": "Kubernetes",
+                "createdAt": "2020-02-16T15:20:07.909Z",
+                "updatedAt": "2020-02-16T22:04:13.013Z",
+                "__v": 0,
+                "id": "5e495da7bc8d7d001ddbd7c5"
+            },
+            {
+                "_id": "5f02da709d8081001fd38fa4",
+                "name": "Jenkins",
+                "createdAt": "2020-07-06T08:01:52.572Z",
+                "updatedAt": "2020-07-06T08:01:52.572Z",
+                "__v": 0,
+                "id": "5f02da709d8081001fd38fa4"
+            },
+            {
+                "_id": "5f03901b9d8081001fd38fa7",
+                "name": "Strapi",
+                "createdAt": "2020-07-06T20:56:59.818Z",
+                "updatedAt": "2020-07-06T20:56:59.818Z",
+                "__v": 0,
+                "id": "5f03901b9d8081001fd38fa7"
+            },
+            {
+                "_id": "5f0390249d8081001fd38fa8",
+                "name": "TLS",
+                "createdAt": "2020-07-06T20:57:08.354Z",
+                "updatedAt": "2020-07-06T20:57:08.354Z",
+                "__v": 0,
+                "id": "5f0390249d8081001fd38fa8"
+            },
+            {
+                "_id": "5f0390329d8081001fd38fa9",
+                "name": "MongoDB",
+                "createdAt": "2020-07-06T20:57:22.633Z",
+                "updatedAt": "2020-07-06T20:57:22.633Z",
+                "__v": 0,
+                "id": "5f0390329d8081001fd38fa9"
+            },
+            {
+                "_id": "5f0390499d8081001fd38faa",
+                "name": "React",
+                "createdAt": "2020-07-06T20:57:45.054Z",
+                "updatedAt": "2020-07-06T20:57:45.054Z",
+                "__v": 0,
+                "id": "5f0390499d8081001fd38faa"
+            }
+        ],
+        "skills": [
+            {
+                "_id": "5f635b6a5ee4c9001d2b9632",
+                "name": "Spring Boot",
+                "rating": 9.7,
+                "order": 1,
+                "createdAt": "2020-09-17T12:49:46.739Z",
+                "updatedAt": "2020-09-21T21:05:20.308Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f6851a85ee4c9001d2b96af",
+                    "name": "spring-boot.jpeg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "spring_boot_5ee37de4c1",
+                    "ext": ".jpeg",
+                    "mime": "image/png",
+                    "size": 7.98,
+                    "width": 400,
+                    "height": 400,
+                    "url": "/uploads/spring_boot_5ee37de4c1.jpeg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_spring-boot.jpeg",
+                            "hash": "thumbnail_spring_boot_5ee37de4c1",
+                            "ext": ".jpeg",
+                            "mime": "image/png",
+                            "width": 156,
+                            "height": 156,
+                            "size": 5.21,
+                            "path": null,
+                            "url": "/uploads/thumbnail_spring_boot_5ee37de4c1.jpeg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635b6a5ee4c9001d2b9632",
+                        "5feed4c667bdd6001e9c12d0"
+                    ],
+                    "createdAt": "2020-09-21T07:09:28.458Z",
+                    "updatedAt": "2021-01-01T21:02:32.991Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6851a85ee4c9001d2b96af"
+                },
+                "description": "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can \"just run\".\n\n- Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)\n- Provide opinionated 'starter' dependencies to simplify your build configuration\n- Automatically configure Spring and 3rd party libraries whenever possible\n- Provide production-ready features such as metrics, health checks, and externalized configuration",
+                "id": "5f635b6a5ee4c9001d2b9632"
+            },
+            {
+                "_id": "5f635b555ee4c9001d2b9631",
+                "name": "Kotlin",
+                "rating": 8,
+                "createdAt": "2020-09-17T12:49:25.636Z",
+                "updatedAt": "2020-09-21T21:01:54.939Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f65ec765ee4c9001d2b9676",
+                    "name": "kotlin_250x250.png",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "kotlin_250x250_dfc086e243",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 3.69,
+                    "width": 250,
+                    "height": 250,
+                    "url": "/uploads/kotlin_250x250_dfc086e243.png",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_kotlin_250x250.png",
+                            "hash": "thumbnail_kotlin_250x250_dfc086e243",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 156,
+                            "height": 156,
+                            "size": 6.89,
+                            "path": null,
+                            "url": "/uploads/thumbnail_kotlin_250x250_dfc086e243.png"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f6359c55ee4c9001d2b9627",
+                        "5f635b555ee4c9001d2b9631"
+                    ],
+                    "createdAt": "2020-09-19T11:33:10.896Z",
+                    "updatedAt": "2020-09-21T06:17:06.069Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f65ec765ee4c9001d2b9676"
+                },
+                "description": "- Lambda expressions + Inline functions = performant custom control structures\n- Extension functions\n- Null-safety\n- Smart casts\n- String templates\n- Properties\n- Primary constructors\n- First-class delegation\n- Type inference for variable and property types\n- Singletons\n- Declaration-site variance & Type projections\n- Range expressions\n- Operator overloading\n- Companion objects\n- Data classes\n- Separate interfaces for read-only and mutable collections\n- Coroutines",
+                "id": "5f635b555ee4c9001d2b9631"
+            },
+            {
+                "_id": "5f635c2e5ee4c9001d2b963c",
+                "name": "Jenkins Pipeline",
+                "rating": 8,
+                "createdAt": "2020-09-17T12:53:02.588Z",
+                "updatedAt": "2020-09-22T06:41:07.845Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f65ed105ee4c9001d2b967c",
+                    "name": "jenkins-5-569553.png",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "jenkins_5_569553_cb54b85a4c",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 12.15,
+                    "width": 256,
+                    "height": 256,
+                    "url": "/uploads/jenkins_5_569553_cb54b85a4c.png",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_jenkins-5-569553.png",
+                            "hash": "thumbnail_jenkins_5_569553_cb54b85a4c",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 156,
+                            "height": 156,
+                            "size": 16.21,
+                            "path": null,
+                            "url": "/uploads/thumbnail_jenkins_5_569553_cb54b85a4c.png"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635a195ee4c9001d2b962a",
+                        "5f635c2e5ee4c9001d2b963c"
+                    ],
+                    "createdAt": "2020-09-19T11:35:44.624Z",
+                    "updatedAt": "2020-09-21T07:16:50.216Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f65ed105ee4c9001d2b967c"
+                },
+                "description": "Pipeline is a suite of plugins that supports implementing and integrating continuous delivery pipelines into Jenkins. Pipeline provides an extensible set of tools for modelling simple-to-complex delivery pipelines \"as code\" via the Pipeline DSL (groovy). ",
+                "id": "5f635c2e5ee4c9001d2b963c"
+            },
+            {
+                "_id": "5f635c375ee4c9001d2b963d",
+                "name": "Jenkins X",
+                "rating": 9,
+                "createdAt": "2020-09-17T12:53:11.954Z",
+                "updatedAt": "2020-09-22T21:19:16.887Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f6616545ee4c9001d2b9690",
+                    "name": "jenkinsx.png",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "jenkinsx_d56c6fea15",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 25.16,
+                    "width": 696,
+                    "height": 398,
+                    "url": "/uploads/jenkinsx_d56c6fea15.png",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_jenkinsx.png",
+                            "hash": "thumbnail_jenkinsx_d56c6fea15",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 245,
+                            "height": 140,
+                            "size": 9.18,
+                            "path": null,
+                            "url": "/uploads/thumbnail_jenkinsx_d56c6fea15.png"
+                        },
+                        "small": {
+                            "name": "small_jenkinsx.png",
+                            "hash": "small_jenkinsx_d56c6fea15",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 500,
+                            "height": 286,
+                            "size": 22.51,
+                            "path": null,
+                            "url": "/uploads/small_jenkinsx_d56c6fea15.png"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f0413739d8081001fd38fb6",
+                        "5f635c375ee4c9001d2b963d"
+                    ],
+                    "createdAt": "2020-09-19T14:31:48.129Z",
+                    "updatedAt": "2020-09-21T07:17:01.500Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6616545ee4c9001d2b9690"
+                },
+                "description": "Jenkins X provides pipeline automation, built-in GitOps, and preview environments to help teams collaborate and accelerate their software delivery at any scale. Jenkins X builds upon the following core components:\n- Kubernetes and Docker\n- Helm and Draft",
+                "id": "5f635c375ee4c9001d2b963d"
+            },
+            {
+                "_id": "5f635f8f5ee4c9001d2b966c",
+                "name": "Helm",
+                "rating": 8,
+                "createdAt": "2020-09-17T13:07:27.527Z",
+                "updatedAt": "2020-09-30T06:20:10.213Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f6854785ee4c9001d2b96cf",
+                    "name": "helm.jpg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "helm_9127651c35",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "size": 12.82,
+                    "width": 366,
+                    "height": 366,
+                    "url": "/uploads/helm_9127651c35.jpg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_helm.jpg",
+                            "hash": "thumbnail_helm_9127651c35",
+                            "ext": ".jpg",
+                            "mime": "image/jpeg",
+                            "width": 156,
+                            "height": 156,
+                            "size": 5.11,
+                            "path": null,
+                            "url": "/uploads/thumbnail_helm_9127651c35.jpg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635f8f5ee4c9001d2b966c"
+                    ],
+                    "createdAt": "2020-09-21T07:21:28.306Z",
+                    "updatedAt": "2020-09-21T07:21:30.887Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6854785ee4c9001d2b96cf"
+                },
+                "description": "Helm is a tool that streamlines installing and managing Kubernetes applications. ... A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, etc,",
+                "id": "5f635f8f5ee4c9001d2b966c"
+            },
+            {
+                "_id": "5f635f995ee4c9001d2b966d",
+                "name": "Chart Museum",
+                "rating": 7,
+                "createdAt": "2020-09-17T13:07:37.145Z",
+                "updatedAt": "2020-09-30T06:22:03.609Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f6854c05ee4c9001d2b96d1",
+                    "name": "chart-museum.png",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "chart_museum_a56509005a",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 72.28,
+                    "width": 500,
+                    "height": 225,
+                    "url": "/uploads/chart_museum_a56509005a.png",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_chart-museum.png",
+                            "hash": "thumbnail_chart_museum_a56509005a",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 245,
+                            "height": 110,
+                            "size": 29.64,
+                            "path": null,
+                            "url": "/uploads/thumbnail_chart_museum_a56509005a.png"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635f995ee4c9001d2b966d"
+                    ],
+                    "createdAt": "2020-09-21T07:22:40.798Z",
+                    "updatedAt": "2020-09-21T07:22:43.401Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6854c05ee4c9001d2b96d1"
+                },
+                "description": "ChartMuseum is an open-source Helm Chart Repository written in Go (Golang), with support for cloud storage backends, including Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage, Alibaba Cloud OSS Storage and Openstack Object Storage.",
+                "id": "5f635f995ee4c9001d2b966d"
+            },
+            {
+                "_id": "5f635c185ee4c9001d2b963a",
+                "name": "Maven",
+                "rating": 9.6,
+                "createdAt": "2020-09-17T12:52:40.922Z",
+                "updatedAt": "2020-09-22T06:36:50.576Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f6853265ee4c9001d2b96bf",
+                    "name": "maven.png",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "maven_8510b1d6fa",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 30.77,
+                    "width": 1280,
+                    "height": 324,
+                    "url": "/uploads/maven_8510b1d6fa.png",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_maven.png",
+                            "hash": "thumbnail_maven_8510b1d6fa",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 245,
+                            "height": 62,
+                            "size": 10.07,
+                            "path": null,
+                            "url": "/uploads/thumbnail_maven_8510b1d6fa.png"
+                        },
+                        "large": {
+                            "name": "large_maven.png",
+                            "hash": "large_maven_8510b1d6fa",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 1000,
+                            "height": 253,
+                            "size": 68.02,
+                            "path": null,
+                            "url": "/uploads/large_maven_8510b1d6fa.png"
+                        },
+                        "medium": {
+                            "name": "medium_maven.png",
+                            "hash": "medium_maven_8510b1d6fa",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 750,
+                            "height": 190,
+                            "size": 46.3,
+                            "path": null,
+                            "url": "/uploads/medium_maven_8510b1d6fa.png"
+                        },
+                        "small": {
+                            "name": "small_maven.png",
+                            "hash": "small_maven_8510b1d6fa",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "width": 500,
+                            "height": 127,
+                            "size": 27.01,
+                            "path": null,
+                            "url": "/uploads/small_maven_8510b1d6fa.png"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635c185ee4c9001d2b963a"
+                    ],
+                    "createdAt": "2020-09-21T07:15:50.288Z",
+                    "updatedAt": "2020-09-21T07:15:57.208Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6853265ee4c9001d2b96bf"
+                },
+                "description": "Maven is a build automation tool used primarily for Java projects. Maven can also be used to build and manage projects written in C#, Ruby, Scala, and other languages. \n\nMaven addresses two aspects of building software: how software is built, and its dependencies. An XML file describes the software project being built, its dependencies on other external modules and components, the build order, directories, and required plug-ins. ",
+                "id": "5f635c185ee4c9001d2b963a"
+            },
+            {
+                "_id": "5f635c4f5ee4c9001d2b963f",
+                "name": "Tekton",
+                "createdAt": "2020-09-17T12:53:35.722Z",
+                "updatedAt": "2020-09-22T21:20:48.795Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "rating": 8,
+                "image": {
+                    "_id": "5f6853a55ee4c9001d2b96c7",
+                    "name": "tekton.jpeg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "tekton_8b8bad63e8",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "size": 13.24,
+                    "width": 213,
+                    "height": 237,
+                    "url": "/uploads/tekton_8b8bad63e8.jpeg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_tekton.jpeg",
+                            "hash": "thumbnail_tekton_8b8bad63e8",
+                            "ext": ".jpeg",
+                            "mime": "image/jpeg",
+                            "width": 140,
+                            "height": 156,
+                            "size": 7.5,
+                            "path": null,
+                            "url": "/uploads/thumbnail_tekton_8b8bad63e8.jpeg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635c4f5ee4c9001d2b963f"
+                    ],
+                    "createdAt": "2020-09-21T07:17:57.258Z",
+                    "updatedAt": "2020-09-21T07:17:59.250Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f6853a55ee4c9001d2b96c7"
+                },
+                "description": "The Tekton Pipelines project provides k8s-style resources for declaring CI/CD-style pipelines.\n\nTekton Pipelines are Cloud Native:\n\n- Run on Kubernetes\n- Have Kubernetes clusters as a first class type\n- Use containers as their building blocks\n",
+                "id": "5f635c4f5ee4c9001d2b963f"
+            },
+            {
+                "_id": "5f635ca45ee4c9001d2b9643",
+                "name": "Kubernetes",
+                "rating": 8,
+                "createdAt": "2020-09-17T12:55:00.632Z",
+                "updatedAt": "2020-09-22T21:28:44.327Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f66163d5ee4c9001d2b968e",
+                    "name": "kubernetes.jpeg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "kubernetes_c13e33fa8c",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "size": 17.62,
+                    "width": 400,
+                    "height": 388,
+                    "url": "/uploads/kubernetes_c13e33fa8c.jpeg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_kubernetes.jpeg",
+                            "hash": "thumbnail_kubernetes_c13e33fa8c",
+                            "ext": ".jpeg",
+                            "mime": "image/jpeg",
+                            "width": 161,
+                            "height": 156,
+                            "size": 6.17,
+                            "path": null,
+                            "url": "/uploads/thumbnail_kubernetes_c13e33fa8c.jpeg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f0408c59d8081001fd38fb1",
+                        "5f635ca45ee4c9001d2b9643"
+                    ],
+                    "createdAt": "2020-09-19T14:31:25.284Z",
+                    "updatedAt": "2020-09-21T12:08:28.703Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f66163d5ee4c9001d2b968e"
+                },
+                "description": "Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes provides you with:\n\n- **Service discovery and load balancing**\n- **Automated rollouts and rollbacks**: You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to make the best use of your resources.\n- **Self-healing** Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.\n- **Secret and configuration management** ",
+                "id": "5f635ca45ee4c9001d2b9643"
+            },
+            {
+                "_id": "5f635e935ee4c9001d2b9665",
+                "name": "Typescript",
+                "rating": 7.5,
+                "createdAt": "2020-09-17T13:03:15.410Z",
+                "updatedAt": "2020-09-27T08:10:06.054Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f689aee76320d001e515e8b",
+                    "name": "ts.jpg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "ts_1c7c89d06d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "size": 11.59,
+                    "width": 400,
+                    "height": 400,
+                    "url": "/uploads/ts_1c7c89d06d.jpg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_ts.jpg",
+                            "hash": "thumbnail_ts_1c7c89d06d",
+                            "ext": ".jpg",
+                            "mime": "image/jpeg",
+                            "width": 156,
+                            "height": 156,
+                            "size": 4.38,
+                            "path": null,
+                            "url": "/uploads/thumbnail_ts_1c7c89d06d.jpg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f635e935ee4c9001d2b9665"
+                    ],
+                    "createdAt": "2020-09-21T12:22:06.356Z",
+                    "updatedAt": "2020-09-21T12:22:08.459Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f689aee76320d001e515e8b"
+                },
+                "description": "TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript",
+                "id": "5f635e935ee4c9001d2b9665"
+            },
+            {
+                "_id": "5f635e625ee4c9001d2b9660",
+                "name": "React",
+                "rating": 8.5,
+                "createdAt": "2020-09-17T13:02:26.277Z",
+                "updatedAt": "2020-09-27T08:07:00.023Z",
+                "__v": 0,
+                "created_by": "5e4839cd1c2d53001dcc0696",
+                "updated_by": "5e4839cd1c2d53001dcc0696",
+                "image": {
+                    "_id": "5f66167a5ee4c9001d2b9692",
+                    "name": "react.jpeg",
+                    "alternativeText": "",
+                    "caption": "",
+                    "hash": "react_56f28418d3",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "size": 11.98,
+                    "width": 500,
+                    "height": 353,
+                    "url": "/uploads/react_56f28418d3.jpeg",
+                    "formats": {
+                        "thumbnail": {
+                            "name": "thumbnail_react.jpeg",
+                            "hash": "thumbnail_react_56f28418d3",
+                            "ext": ".jpeg",
+                            "mime": "image/jpeg",
+                            "width": 221,
+                            "height": 156,
+                            "size": 4.08,
+                            "path": null,
+                            "url": "/uploads/thumbnail_react_56f28418d3.jpeg"
+                        }
+                    },
+                    "provider": "local",
+                    "related": [
+                        "5f04152d9d8081001fd38fb9",
+                        "5f635e625ee4c9001d2b9660"
+                    ],
+                    "createdAt": "2020-09-19T14:32:26.690Z",
+                    "updatedAt": "2020-09-21T12:19:36.732Z",
+                    "__v": 0,
+                    "created_by": "5e4839cd1c2d53001dcc0696",
+                    "updated_by": "5e4839cd1c2d53001dcc0696",
+                    "id": "5f66167a5ee4c9001d2b9692"
+                },
+                "description": "React.js is an open-source JavaScript library that is used for building user interfaces specifically for single-page applications. It's used for handling the view layer for web and mobile apps.\n\nReact allows developers to create large web applications that can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. It works only on user interfaces in the application",
+                "id": "5f635e625ee4c9001d2b9660"
+            }
+        ],
+        "_id": "5f0215c69d8081001fd38fa1",
+        "title": "Creating a rich web app that can be hosted from home",
+        "shortDescription": "A quick introduction into the various components of my personal website including jenkinsx, kubernetes, letsencrypt and more.",
+        "createdAt": "2020-07-05T18:02:46.731Z",
+        "updatedAt": "2021-01-02T15:49:35.901Z",
+        "__v": 0,
+        "image": {
+            "_id": "5f6616045ee4c9001d2b968a",
+            "name": "Website Icon.jpeg",
+            "alternativeText": "",
+            "caption": "",
+            "hash": "Website_Icon_727b161f01",
+            "ext": ".jpeg",
+            "mime": "image/jpeg",
+            "size": 29.24,
+            "width": 801,
+            "height": 401,
+            "url": "/uploads/Website_Icon_727b161f01.jpeg",
+            "formats": {
+                "thumbnail": {
+                    "name": "thumbnail_Website Icon.jpeg",
+                    "hash": "thumbnail_Website_Icon_727b161f01",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "width": 245,
+                    "height": 123,
+                    "size": 6.52,
+                    "path": null,
+                    "url": "/uploads/thumbnail_Website_Icon_727b161f01.jpeg"
+                },
+                "medium": {
+                    "name": "medium_Website Icon.jpeg",
+                    "hash": "medium_Website_Icon_727b161f01",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "width": 750,
+                    "height": 375,
+                    "size": 27.25,
+                    "path": null,
+                    "url": "/uploads/medium_Website_Icon_727b161f01.jpeg"
+                },
+                "small": {
+                    "name": "small_Website Icon.jpeg",
+                    "hash": "small_Website_Icon_727b161f01",
+                    "ext": ".jpeg",
+                    "mime": "image/jpeg",
+                    "width": 500,
+                    "height": 250,
+                    "size": 16.14,
+                    "path": null,
+                    "url": "/uploads/small_Website_Icon_727b161f01.jpeg"
+                }
+            },
+            "provider": "local",
+            "related": [
+                "5f0215c69d8081001fd38fa1"
+            ],
+            "createdAt": "2020-09-19T14:30:28.441Z",
+            "updatedAt": "2020-09-19T14:30:33.163Z",
+            "__v": 0,
+            "created_by": "5e4839cd1c2d53001dcc0696",
+            "updated_by": "5e4839cd1c2d53001dcc0696",
+            "id": "5f6616045ee4c9001d2b968a"
+        },
+        "content": "I'm the kind of person that learns by doing - the more I do, the more it sinks in. Whilst attempting to keep my skills up to date, I had the idea of building a rich web application which would serve up my CV, and it could also double as a place to hone and demonstrate my skillsets in certain technologies. Eventually, I could even start blogging about these experiences. \n\nThe first thing I decided I would need would be a CMS (Content Management System). The content of my website would have to be dynamic, as I would like to keep my CV and blog up to date.  There were many options available here, but I finally settled on a headless CMS named ([strapi](https://strapi.io/)). Strapi would also require some sort of persistence layer, and  [mongodb](https://www.mongodb.com/ seemed to be a sensible choice.\n\nFor the web interface itself, there was a bit of competition between React and Angular. After spending years commercially working on Angular projects, I decided that React could be a good thing to learn and went with that.  \n\nnpx create-react-app my-app --template typescript is the command used to boostrap my react SPA (single page application) and I found a boostrap template from [here](https://wrapbootstrap.com/).\n\nSo far so good right ? I had picked the basic building blocks for building this dynamic CV/blog, but where would I run it ? I had a perfectly good iMac that was unused, and a fast enough internet connection. This app doesnt need to be highly available, as its just a little hobby app so this would suit well. I could use [ngrok](https://ngrok.com/) to make my app available to the internet, and I could use [Route 53](https://aws.amazon.com/route53/) to set up and configure my domain.\n\nKubernetes is a very popular way or running cloud native apps, so this was a pretty easy choice, the only issue was what flavour of it would work best on a mac. I started off with minikube, but started to have issues with persistent volumes, so eventually went with [kind (kubernetes in docker)](https://kind.sigs.k8s.io/). I could easily install nginx ingress controller, and it was super easy to configure.\n\nThe last thing to consider was how to deploy the individual components or services to the kubernetes cluster. One of my requirements was that I would want to make continual improvments to my app, so the deployment process must be as simple as possible. I would want to have git projects for each service,  build a container image, and deploy a helm chart (a helm chart is a collection of files that describe a related set of Kubernetes resources).  [Jenkins X](https://jenkins-x.io/) describes itself as *Jenkins X provides pipeline automation, built-in GitOps, and preview environments to help teams collaborate and accelerate their software delivery at any scale*. There was out of the box support for kubernetes flavours such as GKE (google cloud) and EKS (amazon web services), but a bit of customisation would be required if i wanted to run this on my local kubernetes cluster. This was easy enough and I was able to configure the following:\n- [Harbor](https://goharbor.io/) as the container registry of choice\n- [Cert Manager](https://cert-manager.io/) - configure cert manager to generate lets encrpt certificates using ACME challennges based on my use of AWS Route 53 for dns.\n- Installed MongoDB in the control plane.\n\nOverall my initial architecture looked something like this:\n\n![Website V1](/uploads/Website_V1_c3889a1afa.jpeg)\n\n\n*All source code for this app can be found here: (https://github.com/simonjamesrowe)*",
+        "updated_by": {
+            "isActive": true,
+            "blocked": false,
+            "roles": [
+                "5f6314095ee4c9001d2b959f"
+            ],
+            "_id": "5e4839cd1c2d53001dcc0696",
+            "username": "simon.rowe@gmail.com",
+            "email": "simon.rowe@gmail.com",
+            "createdAt": "2020-02-15T18:34:53.155Z",
+            "updatedAt": "2020-09-17T07:45:13.526Z",
+            "__v": 0,
+            "id": "5e4839cd1c2d53001dcc0696"
+        },
+        "id": "5f0215c69d8081001fd38fa1"
+    }
+}
+2025-10-04T09:13:50.737+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Discovered group coordinator localhost:33269 (id: 2147483646 rack: null)
+2025-10-04T09:13:50.740+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] (Re-)joining group
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-04T09:13:50.749+01:00  INFO 46798 --- [api-gateway] [omcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-10-04T09:13:50.782+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Request joining group due to: need to re-join with the given member-id: consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35
+2025-10-04T09:13:50.782+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] (Re-)joining group
+2025-10-04T09:13:50.809+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Successfully joined group with generation Generation{generationId=1, memberId='consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35', protocol='range'}
+2025-10-04T09:13:50.812+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Finished assignment for group at generation 1: {consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35=Assignment(partitions=[LOCAL_EVENTS-0])}
+2025-10-04T09:13:50.850+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Successfully synced group in generation Generation{generationId=1, memberId='consumer-search-service-1-aac6acdd-5440-418d-b112-28877567bb35', protocol='range'}
+2025-10-04T09:13:50.850+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Notifying assignor about the new Assignment(partitions=[LOCAL_EVENTS-0])
+2025-10-04T09:13:50.852+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-search-service-1, groupId=search-service] Adding newly assigned partitions: LOCAL_EVENTS-0
+2025-10-04T09:13:50.873+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-search-service-1, groupId=search-service] Found no committed offset for partition LOCAL_EVENTS-0
+2025-10-04T09:13:50.889+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-search-service-1, groupId=search-service] Resetting offset for partition LOCAL_EVENTS-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:33269 (id: 1 rack: null)], epoch=0}}.
+2025-10-04T09:13:50.890+01:00  INFO 46798 --- [api-gateway] [        kafka-1] [                                                 ] o.s.k.l.KafkaMessageListenerContainer    : search-service: partitions assigned: [LOCAL_EVENTS-0]
+2025-10-04T09:13:50.939+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:33269]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = api-gateway-producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class com.simonjamesrowe.model.serialization.WebhookEventSerializer
+
+2025-10-04T09:13:50.940+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-04T09:13:50.945+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=api-gateway-producer-1] Instantiated an idempotent producer.
+2025-10-04T09:13:50.954+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-10-04T09:13:50.955+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-10-04T09:13:50.955+01:00  INFO 46798 --- [api-gateway] [omcat-handler-1] [68e0d73e08a5e04d2788404fca60011d-c1c50087b5b7fcce] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759565630954
+2025-10-04T09:13:50.965+01:00  INFO 46798 --- [api-gateway] [eway-producer-1] [                                                 ] org.apache.kafka.clients.Metadata        : [Producer clientId=api-gateway-producer-1] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Sat, 04 Oct 2025 08:13:50 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+2025-10-04T09:13:51.003+01:00  INFO 46798 --- [api-gateway] [eway-producer-1] [                                                 ] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=api-gateway-producer-1] ProducerId set to 0 with epoch 0
+Request method:	POST
+Request URI:	http://localhost:63496/webhook
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 401 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+WWW-Authenticate: Basic realm="Realm"
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 04 Oct 2025 08:13:51 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "timestamp": "2025-10-04T08:13:51.149+00:00",
+    "status": 401,
+    "error": "Unauthorized",
+    "path": "/webhook"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BlogDocumentIndexConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">search-service</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.searchservice.dataproviders.elasticsearch.blog</a> &gt; <span class="el_source">BlogDocumentIndexConfig.java</span></div><h1>BlogDocumentIndexConfig.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.searchservice.dataproviders.elasticsearch.blog;
+
+import com.simonjamesrowe.searchservice.config.ElasticSearchIndexProperties;
+import com.simonjamesrowe.searchservice.dataproviders.elasticsearch.AbstractIndexConfig;
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BlogDocumentIndexConfig extends AbstractIndexConfig {
+
+    private static final String SETTINGS = &quot;&quot;&quot;
+        {
+              &quot;analysis&quot; : {
+                &quot;analyzer&quot;: {
+                  &quot;lowercase_keyword&quot;:{
+                    &quot;tokenizer&quot;:&quot;keyword&quot;,
+                    &quot;filter&quot;: [&quot;lowercase&quot;]
+                  },
+                  &quot;markdown_text&quot; : {
+                    &quot;char_filter&quot;: [
+                      &quot;html_strip&quot;
+                    ],
+                    &quot;tokenizer&quot; : &quot;lowercase&quot;,
+                    &quot;filter&quot; : [&quot;stop&quot;, &quot;unique&quot;, &quot;porter_stem&quot;]
+                  }
+                }
+              }
+            }
+        &quot;&quot;&quot;;
+
+    private static final String MAPPINGS = &quot;&quot;&quot;
+        {
+              &quot;properties&quot; : {
+                &quot;title&quot; : {
+                  &quot;type&quot; : &quot;search_as_you_type&quot;,
+                  &quot;store&quot; : true,
+                  &quot;index&quot; : true
+                },
+                &quot;content&quot; : {
+                  &quot;type&quot;: &quot;text&quot;,
+                  &quot;store&quot;: false,
+                  &quot;index&quot;: true,
+                  &quot;analyzer&quot;: &quot;markdown_text&quot;
+                },
+                &quot;shortDescription&quot; :{
+                  &quot;type&quot; : &quot;text&quot;,
+                  &quot;store&quot; : true
+                },
+                &quot;tags&quot;: {
+                  &quot;type&quot; : &quot;text&quot;,
+                  &quot;store&quot;: true,
+                  &quot;analyzer&quot;: &quot;lowercase_keyword&quot;
+                },
+                &quot;skills&quot;: {
+                  &quot;type&quot; : &quot;text&quot;,
+                  &quot;store&quot;: true,
+                  &quot;analyzer&quot;: &quot;lowercase_keyword&quot;
+                },
+                &quot;thumbnailImage&quot; : {
+                  &quot;type&quot; : &quot;keyword&quot;,
+                  &quot;store&quot;: true,
+                  &quot;index&quot; : false
+                },
+                &quot;smallImage&quot; : {
+                  &quot;type&quot; : &quot;keyword&quot;,
+                  &quot;store&quot;: true,
+                  &quot;index&quot; : false
+                },
+                &quot;mediumImage&quot; : {
+                  &quot;type&quot; : &quot;keyword&quot;,
+                  &quot;store&quot;: true,
+                  &quot;index&quot; : false
+                },
+                &quot;createdDate&quot; : {
+                  &quot;type&quot; : &quot;date&quot;,
+                  &quot;store&quot;: true,
+                  &quot;index&quot; : true,
+                  &quot;format&quot;: &quot;uuuu-MM-dd&quot;
+                }
+              }
+            }
+        &quot;&quot;&quot;;
+
+    public BlogDocumentIndexConfig(ElasticsearchClient elasticsearchClient,
+                                  ElasticSearchIndexProperties elasticSearchIndexProperties) {
+<span class="fc" id="L86">        super(elasticsearchClient, elasticSearchIndexProperties.blog());</span>
+<span class="fc" id="L87">    }</span>
+
+    @Override
+    public String getSettings() {
+<span class="fc" id="L91">        return SETTINGS;</span>
+    }
+
+    @Override
+    public String getMappings() {
+<span class="fc" id="L96">        return MAPPINGS;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

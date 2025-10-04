@@ -1,0 +1,98 @@
+plugins {
+    id 'org.springframework.boot' version '3.3.5' apply false
+    id 'io.spring.dependency-management' version '1.1.6' apply false
+    id 'java'
+    id 'jacoco'
+    id 'checkstyle'
+    id 'org.sonarqube' version '5.1.0.4882'
+}
+
+allprojects {
+    group = 'com.simonjamesrowe'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url = 'https://repo.spring.io/release'
+            name = 'Spring Release'
+        }
+        maven {
+            url = 'https://repo.spring.io/milestone'
+            name = 'Spring Milestone'
+        }
+        maven {
+            url = 'https://repo.spring.io/snapshot'
+            name = 'Spring Snapshots'
+        }
+        maven {
+            url = 'https://packages.confluent.io/maven/'
+            name = 'Confluent'
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'checkstyle'
+    apply plugin: 'io.spring.dependency-management'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(JavaCompile) {
+        options.release = 21
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.3.5"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
+        }
+        dependencies {
+            dependency "org.testcontainers:testcontainers:${testcontainersVersion}"
+            dependency "org.testcontainers:junit-jupiter:${testcontainersVersion}"
+            dependency "org.testcontainers:postgresql:${testcontainersVersion}"
+            dependency "org.testcontainers:mongodb:${testcontainersVersion}"
+            dependency "org.testcontainers:elasticsearch:${testcontainersVersion}"
+            dependency "org.testcontainers:kafka:${testcontainersVersion}"
+            dependency "org.testcontainers:vault:${testcontainersVersion}"
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+        finalizedBy jacocoTestReport
+    }
+
+    jacocoTestReport {
+        dependsOn test
+        reports {
+            xml.required = true
+            html.required = true
+        }
+    }
+
+    checkstyle {
+        toolVersion = '10.12.4'
+        configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+        configProperties = [
+            'checkstyle.suppressions.file': rootProject.file('config/checkstyle/suppressions.xml')
+        ]
+        maxWarnings = 0
+        maxErrors = 0
+    }
+
+    tasks.withType(Checkstyle) {
+        reports {
+            xml.required = true
+            html.required = true
+        }
+    }
+}
+
+// Root tasks are already defined by the java plugin
+// We just need to ensure they run on all subprojects

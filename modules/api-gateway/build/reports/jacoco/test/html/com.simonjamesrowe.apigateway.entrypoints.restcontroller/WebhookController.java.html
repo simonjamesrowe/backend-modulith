@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebhookController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api-gateway</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.apigateway.entrypoints.restcontroller</a> &gt; <span class="el_source">WebhookController.java</span></div><h1>WebhookController.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.apigateway.entrypoints.restcontroller;
+
+import brave.Span;
+import brave.Tracer;
+import com.simonjamesrowe.apigateway.core.usecase.IResumeUseCase;
+import com.simonjamesrowe.model.cms.dto.WebhookEventDTO;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+
+@RestController
+public class WebhookController {
+
+    private final KafkaTemplate&lt;String, WebhookEventDTO&gt; kafkaTemplate;
+    private final IResumeUseCase resumeUseCase;
+    private final String eventTopic;
+    private final Tracer tracer;
+
+    public WebhookController(
+            KafkaTemplate&lt;String, WebhookEventDTO&gt; kafkaTemplate,
+            IResumeUseCase resumeUseCase,
+            @Value(&quot;${namespace:LOCAL}_EVENTS&quot;) String eventTopic,
+<span class="fc" id="L28">            Tracer tracer) {</span>
+<span class="fc" id="L29">        this.kafkaTemplate = kafkaTemplate;</span>
+<span class="fc" id="L30">        this.resumeUseCase = resumeUseCase;</span>
+<span class="fc" id="L31">        this.eventTopic = eventTopic;</span>
+<span class="fc" id="L32">        this.tracer = tracer;</span>
+<span class="fc" id="L33">    }</span>
+
+    @PostMapping(&quot;/webhook&quot;)
+    public ResponseEntity&lt;Void&gt; webhookPost(@RequestBody WebhookEventDTO event) {
+<span class="fc" id="L37">        resumeUseCase.regenerateResume();</span>
+<span class="fc" id="L38">        sendToKafka(event);</span>
+<span class="fc" id="L39">        return ResponseEntity.ok().build();</span>
+    }
+
+    private void sendToKafka(WebhookEventDTO event) {
+<span class="fc" id="L43">        Span span = tracer.nextSpan().name(&quot;sendToKafka&quot;).start();</span>
+<span class="fc" id="L44">        try (Tracer.SpanInScope spanInScope = tracer.withSpanInScope(span)) {</span>
+<span class="fc" id="L45">            String messageKey = event.model() + &quot;-&quot; + event.entry().get(&quot;id&quot;).textValue();</span>
+
+<span class="fc" id="L47">            kafkaTemplate.send(</span>
+                    MessageBuilder
+<span class="fc" id="L49">                            .withPayload(event)</span>
+<span class="fc" id="L50">                            .setHeader(&quot;model&quot;, event.model())</span>
+<span class="fc" id="L51">                            .setHeader(KafkaHeaders.TOPIC, eventTopic)</span>
+<span class="fc" id="L52">                            .setHeader(&quot;b3&quot;, span.context().traceId())</span>
+<span class="fc" id="L53">                            .setHeader(KafkaHeaders.KEY, messageKey)</span>
+<span class="fc" id="L54">                            .build()</span>
+            );
+        } finally {
+<span class="fc" id="L57">            span.finish();</span>
+        }
+<span class="fc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

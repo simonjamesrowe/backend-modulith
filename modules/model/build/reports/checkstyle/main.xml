@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.12.4">
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/config/JacksonConfig.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/serialization/WebhookEventSerializer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/serialization/WebhookEventDeserializer.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/ProfileResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/WebhookEventDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/TagResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/SkillsGroupResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/BlogResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/SkillResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/SocialMediaResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/JobResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/ImageResponseDTO.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/CMSObject.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/model/src/main/java/com/simonjamesrowe/model/cms/dto/Constants.java">
+</file>
+</checkstyle>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.simonjamesrowe.apigateway.test.usecase.CompressFileUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-04T08:13:51" hostname="Simons-MacBook-Pro.local" time="1.49">
+  <properties/>
+  <testcase name="shouldCompressFile()" classname="com.simonjamesrowe.apigateway.test.usecase.CompressFileUseCaseTest" time="1.49"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

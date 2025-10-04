@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+		"https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<suppressions>
+	<!-- Suppress certain checks for test classes -->
+	<suppress checks="MagicNumber" files=".*Test\.java"/>
+	<suppress checks="DesignForExtension" files=".*Test\.java"/>
+	<suppress checks="FinalParameters" files=".*Test\.java"/>
+	<suppress checks="HiddenField" files=".*Test\.java"/>
+
+	<!-- Suppress for generated classes -->
+	<suppress checks=".*" files=".*[\\/]target[\\/]generated-sources[\\/].*"/>
+
+	<!-- Suppress for configuration classes -->
+	<suppress checks="DesignForExtension" files=".*Configuration\.java"/>
+	<suppress checks="HideUtilityClassConstructor" files=".*Application\.java"/>
+
+	<!-- Suppress for Spring Boot main classes -->
+	<suppress checks="HideUtilityClassConstructor" files=".*Application\.java"/>
+
+	<!-- Suppress for DTOs and entities -->
+	<suppress checks="VisibilityModifier" files=".*DTO\.java"/>
+	<suppress checks="VisibilityModifier" files=".*Entity\.java"/>
+	<suppress checks="FinalParameters" files=".*DTO\.java"/>
+	<suppress checks="ParameterNumber" files=".*Document\.java"/>
+
+	<!-- Suppress TodoComment for specific packages if needed -->
+	<!-- <suppress checks="TodoComment" files=".*"/> -->
+
+	<!-- Suppress LineLength and MethodLength for WebhookControllerTest - contains large JSON test payloads -->
+	<suppress checks="LineLength" files=".*WebhookControllerTest\.java"/>
+	<suppress checks="MethodLength" files=".*WebhookControllerTest\.java"/>
+</suppressions>

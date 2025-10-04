@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.12.4">
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/TestUtils.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/dataproviders/cms/CmsRestApiTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/dataproviders/elasticsearch/blog/BlogRepositoryTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/dataproviders/elasticsearch/blog/BlogDocumentIndexConfigTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/dataproviders/elasticsearch/site/SiteDocumentIndexConfigTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/dataproviders/elasticsearch/site/SiteSearchRepositoryTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/mapper/BlogMapperTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/mapper/JobMapperTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/mapper/SkillsGroupMapperTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/entrypoints/kafka/KafkaEventConsumerITest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/entrypoints/kafka/KafkaEventConsumerTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/entrypoints/restcontroller/SiteControllerTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/entrypoints/restcontroller/BlogControllerTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/entrypoints/scheduled/CmsSynchronizationTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/SearchServiceApplicationTests.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/usecase/SearchSiteUseCaseTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/usecase/IndexSiteUseCaseTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/usecase/SearchBlogsUseCaseTest.java">
+</file>
+<file name="/Users/simonrowe/workspace/simonjamesrowe/backend-modulith/modules/search-service/src/test/java/com/simonjamesrowe/searchservice/test/usecase/IndexBlogUseCaseTest.java">
+</file>
+</checkstyle>

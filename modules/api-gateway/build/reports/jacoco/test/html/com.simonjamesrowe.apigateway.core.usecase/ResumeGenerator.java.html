@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ResumeGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api-gateway</a> &gt; <a href="index.source.html" class="el_package">com.simonjamesrowe.apigateway.core.usecase</a> &gt; <span class="el_source">ResumeGenerator.java</span></div><h1>ResumeGenerator.java</h1><pre class="source lang-java linenums">package com.simonjamesrowe.apigateway.core.usecase;
+
+import com.itextpdf.io.font.FontProgram;
+import com.itextpdf.io.font.FontProgramFactory;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.font.PdfFontFactory.EmbeddingStrategy;
+import com.itextpdf.kernel.colors.WebColors;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.action.PdfAction;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Div;
+import com.itextpdf.layout.element.Link;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.UnitValue;
+import com.simonjamesrowe.apigateway.core.model.ResumeData;
+import org.springframework.core.io.ClassPathResource;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+
+public final class ResumeGenerator {
+
+    private ResumeGenerator() {
+        // Utility class
+    }
+
+    private static final float FONT_7_PT = 7f;
+    private static final float FONT_8_PT = 8f;
+    private static final float FONT_9_PT = 9f;
+    private static final float SKILLS_MARGIN_LEFT = 35f;
+
+    private static final FontProgram FONT_PROGRAM;
+
+    static {
+        try {
+<span class="fc" id="L48">            FONT_PROGRAM = FontProgramFactory.createFont(</span>
+<span class="fc" id="L49">                    new ClassPathResource(&quot;OpenSans-Regular.ttf&quot;).getInputStream().readAllBytes()</span>
+            );
+<span class="nc" id="L51">        } catch (IOException e) {</span>
+<span class="nc" id="L52">            throw new RuntimeException(&quot;Failed to load font&quot;, e);</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+
+    public static byte[] generate(ResumeData data) {
+<span class="fc" id="L57">        PdfFont font = PdfFontFactory.createFont(FONT_PROGRAM, PdfEncodings.UTF8, EmbeddingStrategy.PREFER_EMBEDDED);</span>
+<span class="fc" id="L58">        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();</span>
+<span class="fc" id="L59">        PdfWriter writer = new PdfWriter(byteArrayOutputStream);</span>
+<span class="fc" id="L60">        PdfDocument pdfDoc = new PdfDocument(writer);</span>
+<span class="fc" id="L61">        pdfDoc.addNewPage();</span>
+<span class="fc" id="L62">        Document document = new Document(pdfDoc);</span>
+<span class="fc" id="L63">        document.setFont(font);</span>
+
+<span class="fc" id="L65">        addSideBar(document, data);</span>
+<span class="fc" id="L66">        addExperience(document, data);</span>
+<span class="fc" id="L67">        addHeadline(document, data);</span>
+
+<span class="fc" id="L69">        pdfDoc.close();</span>
+<span class="fc" id="L70">        document.close();</span>
+<span class="fc" id="L71">        return byteArrayOutputStream.toByteArray();</span>
+    }
+
+    private static void addExperience(Document document, ResumeData data) {
+<span class="fc" id="L75">        Div div = new Div();</span>
+<span class="fc" id="L76">        div.setHeight(UnitValue.createPointValue(842f));</span>
+<span class="fc" id="L77">        div.setWidth(UnitValue.createPointValue(380f));</span>
+<span class="fc" id="L78">        div.setFixedPosition(176f, 0f, UnitValue.createPointValue(380f));</span>
+
+<span class="fc" id="L80">        div.add(blank());</span>
+<span class="fc" id="L81">        div.add(employmentHeading(&quot;Employment History&quot;));</span>
+<span class="fc" id="L82">        data.getJobs().forEach(job -&gt; div.add(jobBlock(job)));</span>
+
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (!data.getEducation().isEmpty()) {</span>
+<span class="fc" id="L85">            div.add(employmentHeading(&quot;Education&quot;));</span>
+<span class="fc" id="L86">            data.getEducation().forEach(education -&gt; div.add(jobBlock(education)));</span>
+        }
+
+<span class="fc" id="L89">        document.add(div);</span>
+<span class="fc" id="L90">    }</span>
+
+    private static Div jobBlock(ResumeData.Job job) {
+<span class="fc" id="L93">        Div jobDiv = new Div();</span>
+<span class="fc" id="L94">        jobDiv.setMarginBottom(10f);</span>
+<span class="fc" id="L95">        jobDiv.setMarginRight(20f);</span>
+<span class="fc" id="L96">        jobDiv.setMarginLeft(10f);</span>
+
+<span class="fc" id="L98">        Table table = new Table(2);</span>
+<span class="fc" id="L99">        table.setWidth(UnitValue.createPercentValue(100f));</span>
+<span class="fc" id="L100">        table.setBorder(Border.NO_BORDER);</span>
+
+<span class="fc" id="L102">        Cell titleCell = new Cell();</span>
+<span class="fc" id="L103">        titleCell.setWidth(UnitValue.createPercentValue(80f));</span>
+<span class="fc" id="L104">        titleCell.add(new Paragraph(new Link(</span>
+<span class="fc" id="L105">                job.getRole() + &quot;, &quot; + job.getCompany(),</span>
+<span class="fc" id="L106">                PdfAction.createURI(job.getLink())</span>
+        )));
+<span class="fc" id="L108">        titleCell.setBorder(Border.NO_BORDER);</span>
+<span class="fc" id="L109">        titleCell.setFontSize(FONT_9_PT);</span>
+<span class="fc" id="L110">        titleCell.setBold();</span>
+<span class="fc" id="L111">        table.addCell(titleCell);</span>
+
+<span class="fc" id="L113">        Cell locationCell = new Cell();</span>
+<span class="fc" id="L114">        locationCell.setWidth(UnitValue.createPercentValue(20f));</span>
+<span class="fc" id="L115">        locationCell.setTextAlignment(TextAlignment.RIGHT);</span>
+<span class="fc" id="L116">        locationCell.add(new Paragraph(job.getLocation()));</span>
+<span class="fc" id="L117">        locationCell.setBorder(Border.NO_BORDER);</span>
+<span class="fc" id="L118">        locationCell.setFontSize(FONT_7_PT);</span>
+<span class="fc" id="L119">        table.addCell(locationCell);</span>
+
+<span class="fc" id="L121">        jobDiv.add(table);</span>
+
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        String endDate = job.getEnd() != null</span>
+<span class="fc" id="L124">                ? job.getEnd().format(DateTimeFormatter.ofPattern(&quot;MMM-yyyy&quot;))</span>
+<span class="fc" id="L125">                : &quot;Present&quot;;</span>
+
+<span class="fc" id="L127">        Paragraph dateParagraph = new Paragraph(</span>
+<span class="fc" id="L128">                job.getStart().format(DateTimeFormatter.ofPattern(&quot;MMM-yyyy&quot;)) + &quot; to &quot; + endDate</span>
+        );
+<span class="fc" id="L130">        dateParagraph.setFontSize(FONT_8_PT);</span>
+<span class="fc" id="L131">        dateParagraph.setPadding(0f);</span>
+<span class="fc" id="L132">        dateParagraph.setMarginTop(0f);</span>
+<span class="fc" id="L133">        dateParagraph.setMarginLeft(2f);</span>
+<span class="fc" id="L134">        jobDiv.add(dateParagraph);</span>
+
+<span class="fc" id="L136">        Paragraph descriptionParagraph = new Paragraph(job.getShortDescription());</span>
+<span class="fc" id="L137">        descriptionParagraph.setFontSize(FONT_8_PT);</span>
+<span class="fc" id="L138">        descriptionParagraph.setPadding(0f);</span>
+<span class="fc" id="L139">        descriptionParagraph.setMarginTop(0f);</span>
+<span class="fc" id="L140">        descriptionParagraph.setMarginLeft(2f);</span>
+<span class="fc" id="L141">        jobDiv.add(descriptionParagraph);</span>
+
+<span class="fc" id="L143">        return jobDiv;</span>
+    }
+
+    private static void addSideBar(Document document, ResumeData data) {
+<span class="fc" id="L147">        Div div = new Div();</span>
+<span class="fc" id="L148">        div.setHeight(UnitValue.createPointValue(842f));</span>
+<span class="fc" id="L149">        div.setWidth(UnitValue.createPointValue(175f));</span>
+<span class="fc" id="L150">        div.setBackgroundColor(WebColors.getRGBColor(&quot;#dddddd&quot;));</span>
+<span class="fc" id="L151">        div.setFixedPosition(0f, 0f, UnitValue.createPointValue(175f));</span>
+
+<span class="fc" id="L153">        div.add(blank());</span>
+<span class="fc" id="L154">        div.add(sidebarHeading(&quot;INFO&quot;));</span>
+<span class="fc" id="L155">        div.add(sidebarContactInfo(&quot;phone&quot;, data.getPhone()));</span>
+<span class="fc" id="L156">        div.add(sidebarContactInfo(&quot;email&quot;, data.getEmail()));</span>
+<span class="fc" id="L157">        div.add(sidebarHeading(&quot;Links&quot;));</span>
+<span class="fc" id="L158">        data.getLinks().forEach(link -&gt; div.add(link(link.getUrl())));</span>
+<span class="fc" id="L159">        div.add(sidebarHeading(&quot;Skills&quot;));</span>
+<span class="fc" id="L160">        data.getSkills().forEach(skill -&gt; div.add(skill(skill)));</span>
+
+<span class="fc" id="L162">        document.add(div);</span>
+<span class="fc" id="L163">    }</span>
+
+    private static Div skill(ResumeData.Skill skill) {
+<span class="fc" id="L166">        Div skillDiv = new Div();</span>
+<span class="fc" id="L167">        skillDiv.setMarginLeft(SKILLS_MARGIN_LEFT);</span>
+
+<span class="fc" id="L169">        Paragraph nameParagraph = new Paragraph(skill.getName());</span>
+<span class="fc" id="L170">        nameParagraph.setFontSize(FONT_7_PT);</span>
+<span class="fc" id="L171">        nameParagraph.setPaddingTop(0f);</span>
+<span class="fc" id="L172">        nameParagraph.setPaddingBottom(0f);</span>
+<span class="fc" id="L173">        nameParagraph.setMarginTop(0f);</span>
+<span class="fc" id="L174">        nameParagraph.setMarginBottom(0f);</span>
+<span class="fc" id="L175">        skillDiv.add(nameParagraph);</span>
+
+<span class="fc" id="L177">        Paragraph starsParagraph = new Paragraph(stars(skill.getRating()));</span>
+<span class="fc" id="L178">        starsParagraph.setPaddingTop(0f);</span>
+<span class="fc" id="L179">        starsParagraph.setBold();</span>
+<span class="fc" id="L180">        starsParagraph.setFontSize(10f);</span>
+<span class="fc" id="L181">        starsParagraph.setPaddingBottom(0f);</span>
+<span class="fc" id="L182">        skillDiv.add(starsParagraph);</span>
+
+<span class="fc" id="L184">        skillDiv.setMarginBottom(0f);</span>
+<span class="fc" id="L185">        return skillDiv;</span>
+    }
+
+    private static String stars(Double rating) {
+<span class="fc" id="L189">        StringBuilder stars = new StringBuilder();</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">        for (int i = 0; i &lt; rating.intValue(); i++) {</span>
+<span class="fc" id="L191">            stars.append(&quot;* &quot;);</span>
+        }
+<span class="fc" id="L193">        return stars.toString();</span>
+    }
+
+    private static Paragraph link(String url) {
+<span class="fc" id="L197">        Paragraph linkParagraph = new Paragraph(new Link(url, PdfAction.createURI(url)));</span>
+<span class="fc" id="L198">        linkParagraph.setMarginLeft(SKILLS_MARGIN_LEFT);</span>
+<span class="fc" id="L199">        linkParagraph.setMarginRight(10f);</span>
+<span class="fc" id="L200">        linkParagraph.setFontSize(FONT_7_PT);</span>
+<span class="fc" id="L201">        return linkParagraph;</span>
+    }
+
+    private static Div blank() {
+<span class="fc" id="L205">        return blank(160f);</span>
+    }
+
+    private static Div blank(float top) {
+<span class="fc" id="L209">        Div blankDiv = new Div();</span>
+<span class="fc" id="L210">        blankDiv.setMarginTop(top);</span>
+<span class="fc" id="L211">        return blankDiv;</span>
+    }
+
+    private static Div sidebarHeading(String heading) {
+<span class="fc" id="L215">        Div headingDiv = new Div();</span>
+<span class="fc" id="L216">        headingDiv.setMarginRight(20f);</span>
+<span class="fc" id="L217">        headingDiv.setMarginLeft(SKILLS_MARGIN_LEFT);</span>
+<span class="fc" id="L218">        headingDiv.setMarginBottom(5f);</span>
+<span class="fc" id="L219">        headingDiv.add(new Paragraph(heading.toUpperCase()));</span>
+<span class="fc" id="L220">        headingDiv.setBorderBottom(new SolidBorder(1f));</span>
+<span class="fc" id="L221">        headingDiv.setFontSize(10f);</span>
+<span class="fc" id="L222">        return headingDiv;</span>
+    }
+
+    private static Div employmentHeading(String heading) {
+<span class="fc" id="L226">        Div headingDiv = new Div();</span>
+<span class="fc" id="L227">        headingDiv.setMarginRight(20f);</span>
+<span class="fc" id="L228">        headingDiv.setMarginLeft(10f);</span>
+<span class="fc" id="L229">        headingDiv.setMarginBottom(10f);</span>
+<span class="fc" id="L230">        headingDiv.add(new Paragraph(heading.toUpperCase()));</span>
+<span class="fc" id="L231">        headingDiv.setBorderBottom(new SolidBorder(1f));</span>
+<span class="fc" id="L232">        headingDiv.setFontSize(10f);</span>
+<span class="fc" id="L233">        return headingDiv;</span>
+    }
+
+    private static Div sidebarContactInfo(String label, String value) {
+<span class="fc" id="L237">        Div contactDiv = new Div();</span>
+<span class="fc" id="L238">        contactDiv.setMarginRight(20f);</span>
+<span class="fc" id="L239">        contactDiv.setMarginLeft(SKILLS_MARGIN_LEFT);</span>
+<span class="fc" id="L240">        contactDiv.setMarginBottom(10f);</span>
+
+<span class="fc" id="L242">        Paragraph labelParagraph = new Paragraph(label.toUpperCase());</span>
+<span class="fc" id="L243">        labelParagraph.setBold();</span>
+<span class="fc" id="L244">        labelParagraph.setFontSize(FONT_7_PT);</span>
+<span class="fc" id="L245">        labelParagraph.setPadding(0f);</span>
+<span class="fc" id="L246">        labelParagraph.setMargin(0f);</span>
+<span class="fc" id="L247">        contactDiv.add(labelParagraph);</span>
+
+<span class="fc" id="L249">        Paragraph valueParagraph = new Paragraph(value);</span>
+<span class="fc" id="L250">        valueParagraph.setFontSize(FONT_7_PT);</span>
+<span class="fc" id="L251">        valueParagraph.setPadding(0f);</span>
+<span class="fc" id="L252">        valueParagraph.setMargin(0f);</span>
+<span class="fc" id="L253">        contactDiv.add(valueParagraph);</span>
+
+<span class="fc" id="L255">        return contactDiv;</span>
+    }
+
+    private static void addHeadline(Document document, ResumeData data) {
+<span class="fc" id="L259">        Div div = new Div();</span>
+<span class="fc" id="L260">        div.setBorder(new SolidBorder(1.5f));</span>
+<span class="fc" id="L261">        div.setWidth(UnitValue.createPercentValue(75.0f));</span>
+<span class="fc" id="L262">        div.setPadding(20f);</span>
+<span class="fc" id="L263">        div.setBackgroundColor(WebColors.getRGBColor(&quot;#ffffff&quot;));</span>
+<span class="fc" id="L264">        div.setFixedPosition(</span>
+                130f,
+<span class="fc" id="L266">                document.getPageEffectiveArea(PageSize.A4).getHeight() - 50,</span>
+<span class="fc" id="L267">                UnitValue.createPercentValue(75.0f)</span>
+        );
+
+<span class="fc" id="L270">        Paragraph nameParagraph = new Paragraph(data.getName().toUpperCase());</span>
+<span class="fc" id="L271">        Style nameStyle = new Style();</span>
+<span class="fc" id="L272">        nameStyle.setTextAlignment(TextAlignment.CENTER);</span>
+<span class="fc" id="L273">        nameStyle.setBold();</span>
+<span class="fc" id="L274">        nameStyle.setFontSize(20f);</span>
+<span class="fc" id="L275">        nameParagraph.addStyle(nameStyle);</span>
+
+<span class="fc" id="L277">        Paragraph headlineParagraph = new Paragraph(data.getHeadline().toUpperCase());</span>
+<span class="fc" id="L278">        Style headlineStyle = new Style();</span>
+<span class="fc" id="L279">        headlineStyle.setTextAlignment(TextAlignment.CENTER);</span>
+<span class="fc" id="L280">        headlineStyle.setFontSize(11f);</span>
+<span class="fc" id="L281">        headlineParagraph.addStyle(headlineStyle);</span>
+
+<span class="fc" id="L283">        div.add(nameParagraph);</span>
+<span class="fc" id="L284">        div.add(headlineParagraph);</span>
+<span class="fc" id="L285">        document.add(div);</span>
+<span class="fc" id="L286">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
