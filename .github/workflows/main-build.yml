@@ -81,11 +81,10 @@ jobs:
       - name: Build and publish api-gateway Docker image (arm64)
         run: |
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-          ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+          DOCKER_DEFAULT_PLATFORM=linux/arm64 ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_DEFAULT_PLATFORM: linux/arm64
 
       - name: Create and push api-gateway multi-arch manifest
         run: |
@@ -102,11 +101,10 @@ jobs:
       - name: Build and publish search-service Docker image (arm64)
         run: |
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-          ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+          DOCKER_DEFAULT_PLATFORM=linux/arm64 ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_DEFAULT_PLATFORM: linux/arm64
 
       - name: Create and push search-service multi-arch manifest
         run: |
