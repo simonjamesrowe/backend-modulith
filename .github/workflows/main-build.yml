@@ -46,6 +46,16 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
       - name: Build with Gradle
         run: ./gradlew clean build -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
 
@@ -55,27 +65,59 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish api-gateway Docker image
-        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }} --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish api-gateway Docker image (amd64)
+        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-amd64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish search-service Docker image
-        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }} --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+      - name: Build and publish api-gateway Docker image (arm64)
+        run: |
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon -PbuildArch=linux/arm64
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push api-gateway multi-arch manifest
+        run: |
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }} \
+            ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-amd64 \
+            ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}-arm64
+
+      - name: Build and publish search-service Docker image (amd64)
+        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-amd64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish search-service Docker image (arm64)
+        run: |
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-arm64 --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon -PbuildArch=linux/arm64
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push search-service multi-arch manifest
+        run: |
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }} \
+            ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-amd64 \
+            ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}-arm64
 
       - name: Tag latest Docker images
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          docker pull ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}
-          docker tag ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }} ghcr.io/simonjamesrowe/api-gateway:latest
-          docker push ghcr.io/simonjamesrowe/api-gateway:latest
-          docker pull ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}
-          docker tag ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }} ghcr.io/simonjamesrowe/search-service:latest
-          docker push ghcr.io/simonjamesrowe/search-service:latest
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/api-gateway:latest \
+            ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/search-service:latest \
+            ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}
 
       - name: Upload test results
         if: always()
