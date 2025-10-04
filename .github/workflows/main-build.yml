@@ -50,7 +50,7 @@ jobs:
         run: ./gradlew clean build -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
 
       - name: Publish component-test and model to GitHub Packages
-        run: ./gradlew :modules:component-test:publish :modules:model:publish -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
+        run: ./gradlew :modules:component-test:publish :modules:model:publish -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon --info
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
