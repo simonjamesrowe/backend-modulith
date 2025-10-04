@@ -33,6 +33,12 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set version without v prefix
+        id: version
+        run: echo "VERSION=${TAG#v}" >> $GITHUB_OUTPUT
+        env:
+          TAG: ${{ steps.tag_version.outputs.new_tag }}
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -41,22 +47,22 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
 
       - name: Build with Gradle
-        run: ./gradlew clean build -Pversion=${{ steps.tag_version.outputs.new_version }} --no-daemon
+        run: ./gradlew clean build -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
 
       - name: Publish component-test and model to GitHub Packages
-        run: ./gradlew :modules:component-test:publish :modules:model:publish -Pversion=${{ steps.tag_version.outputs.new_version }} --no-daemon
+        run: ./gradlew :modules:component-test:publish :modules:model:publish -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish api-gateway Docker image
-        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.tag_version.outputs.new_version }} --publishImage -Pversion=${{ steps.tag_version.outputs.new_version }} --no-daemon
+        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }} --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish search-service Docker image
-        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.tag_version.outputs.new_version }} --publishImage -Pversion=${{ steps.tag_version.outputs.new_version }} --no-daemon
+        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }} --publishImage -Pversion=${{ steps.version.outputs.VERSION }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,11 +70,11 @@ jobs:
       - name: Tag latest Docker images
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          docker pull ghcr.io/simonjamesrowe/api-gateway:${{ steps.tag_version.outputs.new_version }}
-          docker tag ghcr.io/simonjamesrowe/api-gateway:${{ steps.tag_version.outputs.new_version }} ghcr.io/simonjamesrowe/api-gateway:latest
+          docker pull ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }}
+          docker tag ghcr.io/simonjamesrowe/api-gateway:${{ steps.version.outputs.VERSION }} ghcr.io/simonjamesrowe/api-gateway:latest
           docker push ghcr.io/simonjamesrowe/api-gateway:latest
-          docker pull ghcr.io/simonjamesrowe/search-service:${{ steps.tag_version.outputs.new_version }}
-          docker tag ghcr.io/simonjamesrowe/search-service:${{ steps.tag_version.outputs.new_version }} ghcr.io/simonjamesrowe/search-service:latest
+          docker pull ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }}
+          docker tag ghcr.io/simonjamesrowe/search-service:${{ steps.version.outputs.VERSION }} ghcr.io/simonjamesrowe/search-service:latest
           docker push ghcr.io/simonjamesrowe/search-service:latest
 
       - name: Upload test results
