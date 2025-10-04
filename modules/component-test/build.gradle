@@ -60,12 +60,44 @@ jar {
     enabled = true
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
             from components.java
             groupId = 'com.simonjamesrowe'
             artifactId = 'component-test'
+
+            pom {
+                name = 'Component Test'
+                description = 'Shared test infrastructure with TestContainers for backend-modulith'
+                url = 'https://github.com/simonjamesrowe/backend-modulith'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'simonjamesrowe'
+                        name = 'Simon Rowe'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:git://github.com/simonjamesrowe/backend-modulith.git'
+                    developerConnection = 'scm:git:ssh://github.com/simonjamesrowe/backend-modulith.git'
+                    url = 'https://github.com/simonjamesrowe/backend-modulith'
+                }
+            }
+
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
