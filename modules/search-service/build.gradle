@@ -24,14 +24,15 @@ dependencies {
 }
 
 bootBuildImage {
-    imageName = "simonjamesrowe/search-service:${version}"
+    imageName = "ghcr.io/simonjamesrowe/search-service:${version}"
     environment = [
         'BP_JVM_VERSION': '21'
     ]
     docker {
         publishRegistry {
-            username = System.getenv("DOCKER_USERNAME")
-            password = System.getenv("DOCKER_PASSWORD")
+            url = "https://ghcr.io"
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
         }
     }
 }
