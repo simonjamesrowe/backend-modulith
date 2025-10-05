@@ -71,16 +71,7 @@ jobs:
   build-docker-images:
     name: Build Docker Images
     needs: build-test-and-version
-    strategy:
-      matrix:
-        arch: [amd64, arm64]
-        service: [api-gateway, search-service]
-        include:
-          - arch: amd64
-            runner: ubuntu-latest
-          - arch: arm64
-            runner: ubuntu-24.04-arm
-    runs-on: ${{ matrix.runner }}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     steps:
@@ -97,6 +88,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -104,8 +100,26 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish Docker image
-        run: ./gradlew :modules:${{ matrix.service }}:bootBuildImage --imageName=ghcr.io/simonjamesrowe/${{ matrix.service }}:${{ needs.build-test-and-version.outputs.version }}-${{ matrix.arch }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+      - name: Build and publish api-gateway Docker image (amd64)
+        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-amd64 --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish api-gateway Docker image (arm64)
+        run: DOCKER_DEFAULT_PLATFORM=linux/arm64 ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-arm64 --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish search-service Docker image (amd64)
+        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-amd64 --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish search-service Docker image (arm64)
+        run: DOCKER_DEFAULT_PLATFORM=linux/arm64 ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-arm64 --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
