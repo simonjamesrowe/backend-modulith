@@ -1,7 +1,7 @@
 plugins {
     id 'org.springframework.boot'
     id 'java'
-    id 'org.graalvm.buildtools.native' version '0.10.3' apply false
+    id 'org.graalvm.buildtools.native' version '0.10.6'
 }
 
 dependencies {
@@ -38,10 +38,20 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+graalvmNative {
+    binaries {
+        main {
+            imageName = 'api-gateway'
+            buildArgs.add('--verbose')
+        }
+    }
+}
+
 bootBuildImage {
-    imageName = "ghcr.io/simonjamesrowe/api-gateway:${version}"
+imageName = "ghcr.io/simonjamesrowe/api-gateway:${version}"
     environment = [
-        'BP_JVM_VERSION': '21'
+        'BP_JVM_VERSION': '21',
+        'BP_NATIVE_IMAGE': 'true'
     ]
     docker {
         publishRegistry {
