@@ -29,6 +29,7 @@ graalvmNative {
         main {
             imageName = 'search-service'
             buildArgs.add('--verbose')
+            buildArgs.add('-march=compatibility')
         }
     }
 }
@@ -37,7 +38,8 @@ bootBuildImage {
     imageName = "ghcr.io/simonjamesrowe/search-service:${version}"
     environment = [
         'BP_JVM_VERSION': '21',
-        'BP_NATIVE_IMAGE': 'true'
+        'BP_NATIVE_IMAGE': 'true',
+        'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-march=compatibility'
     ]
     docker {
         publishRegistry {

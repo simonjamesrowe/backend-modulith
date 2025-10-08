@@ -70,11 +70,20 @@ jobs:
             **/build/test-results/
 
   build-docker-images:
-    name: Build Docker Images
+    name: Build Docker Images (${{ matrix.arch }})
     needs: build-test-and-version
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     permissions:
       packages: write
+    strategy:
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-latest
+            platform: linux/amd64
+          - arch: arm64
+            runner: ubuntu-latest-arm64
+            platform: linux/arm64
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -97,22 +106,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish api-gateway Docker image (amd64 native)
-        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+      - name: Build and publish api-gateway Docker image (${{ matrix.arch }})
+        run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-${{ matrix.arch }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
         timeout-minutes: 30
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish search-service Docker image (amd64 native)
-        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+      - name: Build and publish search-service Docker image (${{ matrix.arch }})
+        run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-${{ matrix.arch }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
         timeout-minutes: 30
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  tag-latest:
-    name: Tag Latest Images
+  create-manifests:
+    name: Create Multi-Arch Manifests
     needs: [build-test-and-version, build-docker-images]
     runs-on: ubuntu-latest
     permissions:
@@ -125,9 +134,26 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Tag latest Docker images
+      - name: Create multi-arch manifest for api-gateway (versioned)
+        run: |
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }} \
+            ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-amd64 \
+            ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-arm64
+
+      - name: Create multi-arch manifest for api-gateway (latest)
         run: |
           docker buildx imagetools create -t ghcr.io/simonjamesrowe/api-gateway:latest \
-            ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}
+            ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-amd64 \
+            ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-arm64
+
+      - name: Create multi-arch manifest for search-service (versioned)
+        run: |
+          docker buildx imagetools create -t ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }} \
+            ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-amd64 \
+            ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-arm64
+
+      - name: Create multi-arch manifest for search-service (latest)
+        run: |
           docker buildx imagetools create -t ghcr.io/simonjamesrowe/search-service:latest \
-            ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}
+            ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-amd64 \
+            ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-arm64
