@@ -11,19 +11,6 @@ spring:
   jackson:
     serialization:
       write_dates_as_timestamps: false
-  cloud:
-    gateway:
-      routes:
-        - id: cms-json
-          uri: ${cms.url}
-          predicates:
-            - Path=/jobs,/profiles,/tags,/blogs,/blogs/{id},/skills-groups,/social-medias,/tour-steps,/skills
-        - id: search
-          uri: ${search.url}
-          predicates:
-            - Path=/search/**
-          filters:
-            - StripPrefix=1
   kafka:
     consumer:
       properties:
@@ -33,6 +20,7 @@ spring:
       value-deserializer: com.simonjamesrowe.model.serialization.WebhookEventDeserializer
       max-poll-records: 20
       enable-auto-commit: true
+      auto-offset-reset: earliest
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: com.simonjamesrowe.model.serialization.WebhookEventSerializer
