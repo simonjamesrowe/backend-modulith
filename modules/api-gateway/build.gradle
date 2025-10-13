@@ -43,15 +43,22 @@ graalvmNative {
         main {
             imageName = 'api-gateway'
             buildArgs.add('--verbose')
+            buildArgs.add('-march=compatibility')
         }
     }
+}
+
+tasks.named('processAot') {
+    args = ['--spring.aot.enabled=true']
 }
 
 bootBuildImage {
     imageName = "ghcr.io/simonjamesrowe/api-gateway:${version}"
     environment = [
         'BP_JVM_VERSION': '21',
-        'BP_NATIVE_IMAGE': 'true'
+        'BP_NATIVE_IMAGE': 'true',
+        'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-march=compatibility',
+        'BP_SPRING_AOT_ENABLED': 'true'
     ]
     docker {
         publishRegistry {
