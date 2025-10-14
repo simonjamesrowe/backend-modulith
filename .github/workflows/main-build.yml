@@ -106,12 +106,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build JAR and run AOT processing for api-gateway
+        run: ./gradlew :modules:api-gateway:clean :modules:api-gateway:bootJar -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
+
       - name: Build and publish api-gateway Docker image (${{ matrix.arch }})
         run: ./gradlew :modules:api-gateway:bootBuildImage --imageName=ghcr.io/simonjamesrowe/api-gateway:${{ needs.build-test-and-version.outputs.version }}-${{ matrix.arch }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
         timeout-minutes: 30
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build JAR and run AOT processing for search-service
+        run: ./gradlew :modules:search-service:clean :modules:search-service:bootJar -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
 
       - name: Build and publish search-service Docker image (${{ matrix.arch }})
         run: ./gradlew :modules:search-service:bootBuildImage --imageName=ghcr.io/simonjamesrowe/search-service:${{ needs.build-test-and-version.outputs.version }}-${{ matrix.arch }} --publishImage -Pversion=${{ needs.build-test-and-version.outputs.version }} --no-daemon
