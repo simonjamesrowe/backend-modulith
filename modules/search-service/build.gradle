@@ -34,10 +34,6 @@ graalvmNative {
     }
 }
 
-tasks.named('processAot') {
-    args = ['--spring.aot.enabled=true']
-}
-
 bootBuildImage {
     imageName = "ghcr.io/simonjamesrowe/search-service:${version}"
     environment = [
